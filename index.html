@@ -110,6 +110,14 @@
   }
   .chip.active{ background:var(--ink); border-color:var(--ink); color:#FFFFFF; }
 
+  .brand-chips{ padding-top:0; }
+  .brand-chips:empty{ display:none; padding:0; }
+  .brand-chip{
+    border:1px solid var(--teal); background:#FFFFFF; color:var(--teal);
+    font-size:11.5px; font-weight:600; padding:5px 11px; border-radius:999px; cursor:pointer;
+  }
+  .brand-chip.active{ background:var(--teal); border-color:var(--teal); color:#FFFFFF; }
+
   .kitrow{ display:flex; gap:10px; padding:0 18px 16px; flex-wrap:wrap; }
   .kitbtn{
     display:flex; flex-direction:column; align-items:flex-start; gap:2px;
@@ -311,6 +319,7 @@
         <div class="search"><input id="searchInput" placeholder="Search products…" /></div>
       </div>
       <div class="chips" id="chipRow"></div>
+      <div class="chips brand-chips" id="brandChipRow"></div>
       <div class="kitrow">
         <button class="kitbtn" id="loadAnalogKit">
           <b>⚡ Load Analog Kit</b>
@@ -633,6 +642,7 @@
   /* ---------------- state ---------------- */
   var state = {
     filterCat: "All",
+    filterBrand: "All",
     search: "",
     cart: [], // {name, price, qty, category}
     quoteId: null,
@@ -676,6 +686,10 @@
   }
 
   /* ---------------- rendering: catalog ---------------- */
+  function brandOf(name){
+    return name.trim().split(" ")[0];
+  }
+
   function renderChips(){
     var row = document.getElementById("chipRow");
     row.innerHTML = "";
@@ -683,8 +697,37 @@
       var b = document.createElement("button");
       b.className = "chip" + (state.filterCat===cat ? " active" : "");
       b.textContent = cat;
-      b.onclick = function(){ state.filterCat = cat; renderChips(); renderGrid(); };
+      b.onclick = function(){
+        state.filterCat = cat;
+        state.filterBrand = "All";
+        renderChips();
+        renderBrandChips();
+        renderGrid();
+      };
       row.appendChild(b);
+    });
+    renderBrandChips();
+  }
+
+  function renderBrandChips(){
+    var row = document.getElementById("brandChipRow");
+    row.innerHTML = "";
+    if(state.filterCat === "All"){ return; }
+    var inCat = PRODUCTS.filter(function(p){ return p.category === state.filterCat; });
+    var brands = Array.from(new Set(inCat.map(function(p){ return brandOf(p.name); })));
+    if(brands.length <= 1){ return; }
+    brands.sort();
+    var b = document.createElement("button");
+    b.className = "brand-chip" + (state.filterBrand==="All" ? " active" : "");
+    b.textContent = "All Brands";
+    b.onclick = function(){ state.filterBrand = "All"; renderBrandChips(); renderGrid(); };
+    row.appendChild(b);
+    brands.forEach(function(brand){
+      var btn = document.createElement("button");
+      btn.className = "brand-chip" + (state.filterBrand===brand ? " active" : "");
+      btn.textContent = brand;
+      btn.onclick = function(){ state.filterBrand = brand; renderBrandChips(); renderGrid(); };
+      row.appendChild(btn);
     });
   }
 
@@ -694,8 +737,9 @@
     var q = state.search.trim().toLowerCase();
     var items = PRODUCTS.filter(function(p){
       var okCat = state.filterCat === "All" || p.category === state.filterCat;
+      var okBrand = state.filterCat === "All" || state.filterBrand === "All" || brandOf(p.name) === state.filterBrand;
       var okSearch = !q || p.name.toLowerCase().indexOf(q) > -1;
-      return okCat && okSearch;
+      return okCat && okBrand && okSearch;
     });
     if(!items.length){
       grid.innerHTML = '<div class="empty-state">No products match your search.</div>';
