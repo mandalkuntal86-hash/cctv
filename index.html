@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ApertureQuote — CCTV Quotation Builder</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0B2D6B">
+<link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjogIkFwZXJ0dXJlUXVvdGUgXHUyMDE0IENDVFYgUXVvdGF0aW9uIEJ1aWxkZXIiLCAic2hvcnRfbmFtZSI6ICJBcGVydHVyZVF1b3RlIiwgImRlc2NyaXB0aW9uIjogIkJ1aWxkLCBzYXZlLCBwcmludCBhbmQgc2hhcmUgQ0NUViBxdW90YXRpb25zLiIsICJzdGFydF91cmwiOiAiLiIsICJzY29wZSI6ICIuIiwgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsICJvcmllbnRhdGlvbiI6ICJwb3J0cmFpdC1wcmltYXJ5IiwgImJhY2tncm91bmRfY29sb3IiOiAiI0VBRjFGQyIsICJ0aGVtZV9jb2xvciI6ICIjMEIyRDZCIiwgImljb25zIjogW3sic3JjIjogImRhdGE6aW1hZ2UvcG5nO2Jhc2U2NCxpVkJPUncwS0dnb0FBQUFOU1VoRVVnQUFBTUFBQUFEQUNBSUFBQURkdnZ0UUFBQUhZMGxFUVZSNG5PMmR3WEhrUmd4Rld5N2ZWbUg0dWdyQzZheGk4TUV4S0I0SG9iUERVQUErZEJWclBPUlFIQUw0K0FEL3U2Nlc3QVplbzV0TmN2ank0K2V2SWNSWmZzdHVnS2lOQkJJbUpKQXdJWUdFQ1Fra1RFZ2dZVUlDQ1JNU1NKaVFRTUtFQkJJbUpKQXdJWUdFQ1Fra1RFZ2dZVUlDQ1JNU1NKaVFRTUtFQkJJbUpKQXdJWUdFQ1Fra1RFZ2dZVUlDQ1JNU1NKaVFRTUxFNzlrTllPSHI4K09wdjM5OWV3OXFTUzFlcnZscTg3TzZIT0dhU2wxSW9BaHBIbkVkbVpvTGhKVG1FYjFsNmlrUWd6ZHJXcHJVVFNCT2RXNXBwbEVmZ1l6cVBKdFg4T2xvNlNEUWlWeEc1SStrR1dCcUMvUlV6cERab20yWU8xVUZPcDZoM1BSVWFlZHA2Z2wwTUNWcytTamE3RzhwSnRDUk5ERG5vSHI3MTVRUnFGUG9PL1dsaGtEZlJyeEt1Ry9wMGFrQ0F1MEh1a1NVZDZqZU8ycUJxZ2YzT0hWN3l2dEFXZDJZbm1DL084ejNaMGdyMEU3SW1xbHpSN21PTTFhZ2NrRjBaS2VEbkhXSVRxQXIyek9wNVJEWEZQWW9RQmRSNTQ0UzBTQ3FRQ1hpaGVSUng2bnFFSXRBc21jVGZvY29wakFTZTJqdm5KUEVaNU44Z1JLajR6V09FNXVhN2xDeVFDbHhpYXYvS2MzT2RTaFRJSEJFSEc5ZVp0MEhKWFNJVGlEdzA4cjIwNEUzcm1CQk8waWFRSmhBZ01QZHNsUDc1QWdFQ0VGaWxIdjM3bzZFZlNEQUhzYjZGSzl2NzdENGJwNHJwZGNBRWlwUTZPalpWTWZseU9lSWF3OUpFVUlMaExRbmZZOWtJYWhoREE1QkJZTFp3NlBPTFJFdFRIZUk1VjZZaGEvUEQzNTd4djhiZHRmbXV1QUVDaG9ydE5QV0puZk5zenUwMlYra21wa1Z5TmNlNUhXV2hidDJCamtFQXlSUXhKZ29NVzA5d3RlaE5iQWlsRmFCakNrdmJjL0UwYUhFQ0NBRWNoOE5EZXlaaE5ZaFRCSEtxVUJlV1M5dHo2UjZLTUlGaWh0WURleVpMQjJwV0lRU0twQWw4VDMyVG5hd2RMRGh6VlRmZkxkWitxeUpXd3hGRHpsMEJYSkpmRE43SmtVakV5aFEwRWhxYWM4a2FERVVXb1NnRmVoMDd0c3ZmZGFjN2pKNGdCVzdtZHE0L0V6S2RURHFlMkdPTlFOY2Z2NzQ4KytkZi8zM243OWdMZm42L0hCODZpTklUZHdINSt3ZENCMmQrOTZzL3l6T3BOZTNkL3VkRGRpb1kvOWlJU0FRQjlYWi9GL1JCU211Y25qQkx0QkNSQnpQcWJNK2dydEd5QkppSkdRUjdmVWtlV2dRN2ZaRUhHck51U0RBWGd1cGNSWG1YbjdjVSs1K1FQS1phNkdHUUw0RUZZelFPa1FMcjBCQlc4K2hhZlk5ZU54ZGVrZjhCV0o3dGU4V1FKSGdxVU9ZWlJCdkJYSUhsbG9laHdDUUN1UStWc0JKZFQ4ZDdTeEdLdEFDei9TWEFuLzMyUVZ5SVdWT3VjaEVkZ21CUkJ6T0FoRmVnaVZXZ3ZRaUJMZ1FZNnhBVjNqNDhEamt1MEdNQW9sQ05CY29mUkpKYjBBMHpRVVMwVWdnWVVJQ0NSTVNTSmlRUU1LRUJCSW1KSkF3SVlHRUNRa2tURFFYQ1BrbU1tY0RvbWt1a0lpR1VTRHkrODlneUo5TmNCWW81VHRaK3lST0l1bnpGK0R4TE1ZS0pBcHhDWUZTS2tGNitjSEFMbEQ2REpnTGYvZEpCWEtmcXNIMUlPSUhYM3dQNkFXcFFCSEFITHJJNURYeEY0andRbXdCa0ZvZWV6QnZ5UEJXb0tEZG9OQUUreDZjZkFkb3dpdFFIRUVPOGRRZUpEVUVjcDhFM1pQdGZrQ2VlWCtmRUlHOGxrR2hwZHN4NWFHMXgrdm5KY3YvVHJTUmlCKzhuWW0zdkxvVnBFNlY4alA0QlFMODRPMDVqVEFySHVibDh3UW5rTDJFaFA3cTlpSkUrcWNPN0FNR1djQ2lCSEtzSE9CZjNlYTVtSEljTFhFRHI4WlYyRUtoeGNFNXluVVFLbENWYjJBeFVPWGJhb0VDK1diOUNvOHBCbTA5aHc0LzlCVG1rdjZXRGhXTlRLeEFjU09wbVVOeEg2U09udjBURnRIbFBvMk94TkxCbEVFVkxwQjd5dnN0aHVMdXVnUEdXODVsdkZmdUd6aFVQUlFJZ1VJSFZtbUg0cFkrRVFmY0pHMGowZjVkV2E5RFplRm9UMklFUUFKRmpJYlNEb1hXbnFCamJwSjVLOE9lOVR1SFNtaDAxMDU3cG5ON2pSTm9NMUsrRHJrY01KUzc1Z1haZzl6c0tIWXpkWlBYdC9jUzA5bGQ0ZW14cC9YeTQrY3Y1UGxDUjR6NytQWWlxR0hwNVdmZ0JScFloeHlQZkk2NDlqRFlNM2dFR3E2ZFo5QW90QTJBR0I0a1lRMEU2T1RtYXlHd3RkSG11Vko2RFNDaEFrMHdGUmhjNTF0MmFwODBnUVl3RUR1MUozUWJCdGFYeEhVZW5VQWpMQnpmVG1ISHordDRxS2ZnV2Zvc1pBbzBraUlTdHhoS2FYYnVaV2F5UUNNMUxvNHZIcmtjWndkT2V3YURRSU1tT3NkOUltbFl1ajJEUktEQkhhTmN5Q1BEY2kvc1VUaG9iMnhoSUxkbjhBZzA1TkFLZm5zR3p4UzJBTjVXNGFSUUVJZ3EwR1FuUUJjcFJZWHNHWVFDaldzN1ZNdWVRVGlGTGV5N3dobE5DMFg3eTFpQkp2c2hhMWFLaXRvem1DdlFRdDNnSHFGNjd3b0lOUEp1WG9iU28xTTFCQnJINXF3U0VSKzkrbEpHb0VuMTBGZHYvNXBpQW8zRHkyZTJOQlJ0OXJmVUUyaENlK2Y4amlydFBFMVZnU1pQWGN3ak0wVGJNSGRxQ3pRNXNTY0VmdklhMlF3d0hRU2FPUDVlRE9IcGFPa2owSVIvaDdxTk9wTnVBazA0TldxbXpxU25RQXNNSnJYMFpxRzVRTGNnWmVvdHpTMFhFdWlXQ0ptdUk4MHRGeFZvemJOS1hWT1hOUkpJbU9COW9FeVVRQUlKRXhKSW1KQkF3b1FFRWlZa2tEQWhnWVFKQ1NSTVNDQmhRZ0lKRXhKSW1KQkF3b1FFRWlZa2tEQWhnWVFKQ1NSTVNDQmhRZ0lKRXhKSW1KQkF3b1FFRWlZa2tEQWhnWVFKQ1NSTVNDQmg0ai83ak1sSUtZTTVwUUFBQUFCSlJVNUVya0pnZ2c9PSIsICJzaXplcyI6ICIxOTJ4MTkyIiwgInR5cGUiOiAiaW1hZ2UvcG5nIiwgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIn0sIHsic3JjIjogImRhdGE6aW1hZ2UvcG5nO2Jhc2U2NCxpVkJPUncwS0dnb0FBQUFOU1VoRVVnQUFBZ0FBQUFJQUNBSUFBQUI3R2tPdEFBQVdDMGxFUVZSNG5PM2R5NVhjUmhJRjBOWWM3VVF6dEJXTmtEdWlEVnJJQnRvakk3aVdHVFJnRnExVGJQV25Da2drRXZHNWR6dHpLQ0FSRVM4VFZkMzkweSsvL2ZFRVFELy91L29DQUxpR0FBQm9TZ0FBTkNVQUFKb1NBQUJOQ1FDQXBnUUFRRk1DQUtBcEFRRFFsQUFBYUVvQUFEUWxBQUNhRWdBQVRRa0FnS1lFQUVCVEFnQ2dLUUVBMEpRQUFHaEtBQUEwSlFBQW1oSUFBRTBKQUlDbUJBQkFVd0lBb0NrQkFOQ1VBQUJvU2dBQU5DVUFBSm9TQUFCTkNRQ0FwZ1FBUUZNQ0FLQXBBUURRbEFBQWFFb0FBRFFsQUFDYUVnQUFUUWtBZ0tZRUFFQlRBZ0NnS1FFQTBKUUFBR2hLQUFBMEpRQUFtaElBQUUwSkFJQ21CQUJBVXdJQW9Da0JBTkNVQUFCb1NnQUFOQ1VBQUpvU0FBQk5DUUNBcGdRQVFGTUNBS0FwQVFEUWxBQUFhRW9BQURRbEFBQ2FFZ0FBVFFrQWdLWUVBRUJUQWdDZ0tRRUEwSlFBQUdoS0FBQTBKUUFBbWhJQUFFMEpBSUNtZnI3NkFtQys3OSsrVHY4M1AzMytNdjNmaEd2OTlNdHZmMXg5RFREaWpDay9SamFRbEFBZ2dUaXpmanVwUUh3Q2dIQXlqdnN0UkFMUkNBQkNxRHIwUHlJTWlFQUFjSTF1RS84K2VjQWxCQURyR1BwYkNBT1dFUUNjenR3Zkl3azRtd0RnTE9iK0xKS0Frd2dBSmpQM3p5TUptRXNBTUllNXY1SWtZQW9Cd0NIbS9yVWtBVWNJQUVhWSs5RklBZ1lJQVBZeCtpTVRBK3dpQU5qRTNNOUZFckNGQU9BQm96OHZNY0I5QW9BUEdmMDFpQUUrSWdCNFI0SFJQM2ZxV1JCS0VnRDhrRzdNUlJocUZvMjhCQUJQVHhtbVdLNnhaVDFKUVFCMEYzWlVWWnBRRnBtWUJFQnJvUVpUbjJGazJRbENBRFFWWkFhWlBoNEVGeElBN1VTWU9NYk5XNTRMNndtQVJxNGRNWWJMZHA0VWF3aUFGaTRjS0tiSkVSNGNweElBOVYweVJJeVB1VHhFemlBQUtscy9OWXlNczNtbVRDUUFhakltYXZOOG1VSUFGTFJ5T3BnTDEvS3NPVUlBbEdJYzlPUzVNMFlBMUxGc0NoZ0JNU2tBOWhJQUZhenBmRzJmaFhwZ0l3R1Ezb0p1MStvWktRd2VFZ0M1bmQza09qdzdGY0lkQWlBcmpjMTJxb1YzQ1lDVVR1MW56VnlWc3VFVkFaRFBlVzJzaHp0UVA5d0lnRXpzNEpoQ0lmRk1BS1JoNDhaY0tnb0JrTU5KdmFwUlVWcWRDWURvYk5NNG14cHJTd0NFWm5mR01vcXRJUUVRMXhrTnFSdTVUOVcxOHIrckw0RDM2VU11Y1VhUlJQaDc5N3pMQ1NDaTZRMWo5TE9YSXV6QUNTQWNqVWNFMDh2R09TQWdKNEJBakg0Q1VwYUZPUUZFb2MySXlWR2dNQUVRZ3VsUFpES2dLcStBcmplM0dZeCt6cU5XaTNFQ3VKaU9JcEc1QmVZY2NEa0JjQ1hUbjNSa1FDVmVBVjFtWXVrYi9heW5nQXR3QXJpRzVpRzdpWVhuSEhBVkFYQUIwNThhWkVCMkFtQTEwNTlLWkVCcVBnTllhbGFKRy8xRW83WXpjZ0pZUjRkUTJLeXlkQTVZU1FBc1l2cFRuZ3hJUndDc1lQclRoQXpJUlFDY3p2U25GUm1ReU05WFh3Q2JtUDVqamc4Ukt6L2cwK2N2eG5jS3ZnVjByaWx0WUFZOXRIN2NlQ2dQS2Y3NEJNQ0pOTUJKWXU0dVBhbTN0RUJ3QXVBc1NuK3VtRVAvSXg3Y2pVYUlUQUNjUXRGUGtXdm9mOFJ6MUE1aENZRDVsUHRCTmViK1c1N3BRWjBYOENRQ1lES0ZQcXpxM0gvTDh4M1djK25PNDJ1ZzRYUXI4VDV6LytaMnk2MmV0ZStHQnVRRU1KTnZuVzluRnJ6a3VXL1haNjBXRUFEVHFPeU5qUDZQS0lDTm1pelVBZ0pnRGpYOTBDVnovL2lxSnIzczRQUkxFQUpnam9NRlhidWExOHpRbFd0WTc0N1cweklSQ0lBSmxQSkh6aHVVMFJhdHo1MU9wSEV1SndDT1VzVHZPbU1nWmxtcnp2ZStsL2E1bGdBNHhLdk10K2FPdit6cll6WHUwMEhYRWdDSDJMKzg1Ty9kMzJGeFBxS0pMaVFBeGluY2wveWM1MFlXNmkydGRCVUJNRWpKM2pqRmo3RnVMMm1vU3dpQUVZcjFtUkYybkRXODBWYnIrWnZBRERyZXJqcjJhY1k2K01scWhqa0I3R2FmY21RRkN0eitxWnF2cmVaYVRBRHNvMENIVjZEQXZTL1RlWkcxMkVvQ1lKL09HN1RPVStrU2JSZThjNWN0NWpPQUhUcS9iQjI3ZHkvNmp4aGVQWVhLUms0QVczVSttUTdjZStyN0RhamJJK2pjYmlzNUFheVF0eHkvZi92YWJmVEVOTENrWTg4dUNDVzBoaFBBSmoxZlNocjlBYlY2S0QzN2JpVW5BTjYzdC9lODdsOWpZSjN6bmdNNG14UEFZOTIySWEzMm1IazFlVXpkdW04eEFmQkF0L29iMlBpZmRDVnMwZUY1ZGV2Qmxid0M0b2NPMDZRWXI0TTRRZ0RjMDJycllmb25WVDREamxSYXVwdGRUQUNjSXQxdzNOVW5QdStOWnU4VFNUY1cxZHRKQk1DSDBqWEpzTDNULzd3cjRZamFHVENzejUwT0VBRHo1UnFScG44bGhUTkE3WjFCQUx3dlYyOE0yMzZiWHZ0a3NldEpxZlBtQk1Ca2lhYmtydWwvNnBVd1hja01VSWZUQ1lCM2RQZzF2S1ovZVRMZ3BVVDN1SklBZUsxRG9aaitUWlRNZ0dFZDduRXZBVEJObGxscCtyZFNMd09VNVVRQzREK3k5TUF3MDcraGVoa3dyUHdON2lVQTVrZ3hMazMvdG9wbGdQcWN4UytEKzZIMlo3OGI3eTdGdlRDc1VoblVidGcxbkFCYXFOVDJITEh4RWFjNEIzQ2NBRGdxL3REVXpBeUlYemJ4V3k4K0FmQ3YrT1YrTnUzVWhBZXQyVzhFd0NIeGU4bkxIOTRxOHlKSTNSNGtBSjZlTWhUNkdOT2ZqNVRKZ0RGVjcyc3ZBVEF1K053MC9ibXZSZ1lvNENNRVFQVDZQcFhtYWE1ekFYUnUvQnNCTUNoNDUyd3A3dUMzd0JwYnlpRDRyRlRKdzdvSFFQREtIbVA2czB1QkRCaFQ4cVoyNlI0QVl5SlBUelhOU1NLWFZ1U1dqRXdBZEtSYmVFVko5TlE2QUNMdmFNWjQrY093bmkrQzZ0M1JMcTBEWUV6WUFXcjZjMURxREZEYkEvb0dRTmc2QmxicVBBcjZCc0NZc0xzTTIzK21jQWhvUlFCVVlQb3pVZW9NWUplbUFUQld2bmxuYU40cjV4SjVDMmJzeXR2bVdkTUFxS1J0N1hJdGhWZUFBS2d2NzI2T0N5bWJEam9HUUtYM1B3L3ZKZVpsazhMRDRvbDVDUEFXYUx1T0FWQkd6NUlsRkVXWW1nRFlKT2srT3VsbEUwZlNFa3A2MmV1MUM0QXlHNVl5TjBKMlpVcXh6STFzOS9QVkY4QlpiSUplK2ZYM3Z6YitQLy81Kzg5VHJ5U1hUNSsvTkp5TVRmejB5MjkvWEgwTlN3MlVjc0JKNnJQZmg3YVAreTFFUXNhU3E5SHNwK3AxQXJDUnFXM3UwUC9vWHhZR2hYMy85clZWQnZRS2dCb3k3c1ZPZGQ3Y3YvK2ZhNVVFRDE4RWRSdWROUWlBQjlSMFpJdEgvN3YvOVZZeGtJdFBMeDVxOUMyZ0dxVmcrLy9zMTkvL3VuYjYzOFM1a3JNbC9ibXd2V3JjeFVaT0FDUVRjOW82RFpCUm94UEFnR2k3NmViYi8vaDc3ZmhYZUZDNlEwRHRqaml1eXdrZ1dsMnlTNjZwNmpTUVhaOFB0SjBBNnFoYXNybW0vMDNTeTM2b2FwbjExT1VFVUVERFEwejJHZHJ6S05CbisxeUFFOENIRlBHMXNrLy9tekkza3BSR3ZxTkZBQlRZTzNmNytMZlkwQ3gyTytrK0NoNVE0QmEyOEFxSVdJck55cHVlcjRNSXJzVUpZRUN1RFhXdXE3Mmo2dlMvS1hPRHVVb3UxOVd1SkFBU2FISWFMVE1jNzJ0eW0wMktOanNCa0Y2TjNVMlRzZmlzeHMzV0tMem02Z2VBblVoOE5RYmlMZzF2T1owT282TitBQXdJdGJVcFg0VnRSMkg1R3c5VnVxR2FPZzRCa0Z2MnNpNC9CTy9MZnZ2Wnl3OEJ3R1d5ajc4cExBSVhLaDRBb1E2aEE3SmZQODFsTCtEczEvOVE4UUNvTGZVQjNNNzNKdlZTcEM1Q0JNQnJDbnFCMUNQdkRCWmtBYTM5bGdDSXErcngwN0I3VjlWbHFWckdOUWlBckd4bkNFSXA1aVVBV0tycVBuY0tpOE5pbFFQQTJUTWFBKzRoU3hSTjdURlNPUUFHeERuTTFpNDdXb2xUekhFYVBBZ0JrRkxHT3JhMzNTampRbVVzU0o0RUFFQmJBb0FWTXU1cUwyUzVXRU1BUkJUbm5TbE1vYVJqRWdENXBIdmZhajg3SU4yaXBTdExuZ29IZ0IwSE1FWGhZVkkyQUFiWXdwd2gzVTQyRGt0M0JtMytrZ0FBYUVvQWNDSjcySU1zSUtjU0FPRVVmdUZJWndvN0lBR1FqRGVZaEtVNDB4RUFuTVhyaXlrc0krY1JBQUJOQ1FDQXBtb0dnSStiZ0ltcWpwU2FBVERBNTFkemVYTTlrY1djUzdQZkNBQ0FwZ1JBTFBkUG1uWXVCSGUvUkt1K1NNbExBQUEwSlFBQW1oSUFBRTBKQU9ienJaWHBMQ2xuRUFBQVRRa0FnS1lFQUVCVEFnQ2dLUUVBMEpRQUFHaEtBQUEwSlFBQW1oSUFBRTBKQUlDbUJBQkFVd0lBb0NrQkFOQ1VBR0MrZi83KzgrcExxTWFTY2dZQkFOQ1VBQUJvU2dBQU5DVUFZdm4wK2N1ZC8vWDd0Ni9McmdRRzNDL1IrK1hOZWdJQW9Da0I4QytiNjdsOGEyVWlpem1YWnIrcEdRQk9tc0JFVlVkS3pRQUE0Q0VCQU5DVUFPQXMzbHhQWVJrNWp3Qkl4dWRYaEtVNDB4RUE0VlQ5dUlubUZIWkFBb0FUZVgxeGtBWGtWQUlBb0NrQjhJTTNtR2V3aHgxbTZjNmd6VjhxR3dCZU9BSlRGQjRtWlFPZ3NIUmJHRHZaQWVrV0xWMVo4aVFBWWlxODQ2QW5KUjJUQUdDRmRQdlphMWt1MWhBQUFFMEpnSlF5dm0rMXE5MG80MEpsTEVpZUJNQXJjZXJZTzFQS2lGUE1jUm84aU1vQkVLZnNlSlp4Yjd1WUpZcW05aGlwSEFBRVpNRGRZWEZZVEFCazVUQkxFRW94THdFUVY5V3pwMzN1dTZvdVM5VXlya0VBdkdZN3MwRFZZVGZNZ2l5Z3RkOFNBSW1sTG1najd5YjFVcVF1UW9vSFFQYmpaL2JycDduc0JaejkraDhxSGdCRWxucm5PNHRGNEVJQ0lMZnNCL0RtNHkvNzdXY3ZQd1RBTzBLVmRmbERhUFloT0t6OGpZY3EzVkJOSFVmOUFBaFZoYnlyL0NoOHErRXRwOU5oZE5RUGdQSnFiRzFhRGNRYU4xdWo4Sm9UQUFsMDJJazhWUm1MRHpXNXpTWkZtNTBBZUYrdTNVMnVxNzJqL0hBc2M0TzVTaTdYMWE3MDg5VVhBUC94UENKLy9mMnZxeTlrc2pLam4wcGFuQUFLbkVZZjNrS3hQVTZ4Y1Zuc2RoNFdXNGVPcTZGRkFJd3BObExUS1RNMHk5eElVaHI1RHErQTB2ajArVXUzVXM3K09xam42Ryt5ZDY3QkNhQ09xdkdRZEl3bXZleUhxcFpaVDExT0FBMjN6NVhrT2dwVUhmMTk5RG5FT0FIY0V5MHp1bjBVL01vL2YvOFpmTGJHdjhLRDBuMzhXN3NqanV0eUFxQ01tS2VCMm5PZnFocWRBS0x0VGNZMFB3VGN4TmxyeDdtU3M2WGIvbytwY1JjYk9RRTg4UDNiMTFZRmtjdTFwNEVtY3ordkpwdWhJd1JBUGc4LzBPNFdXcmRCdkNZSmVzNzlKdHYvYm5vRmdPOEMxZlp5Tk04Tmc1NUR2NkZ1TWZiVEw3LzljZlUxTERVV0FBSEx3bzVzcisyUllOeS9rckhZeW5UNnFYcWRBRnJwOWlMb0lXTjlqRU56WVkyK0JmU3N6RXdzY3lOa1Y2WVV5OXpJZHUwQ1lFelNUVkRTeXlhT3BDV1U5TExYRXdDSk5keXdFSTBpVEsxakFJeVZiTXc5aFo4TDR6d1pQL3Q5OHZIdkhoMERvQnNad0FCbDA0RUFTSy9uem9YTEtid0NtZ1pBcGJkQVcrUzljaTZSdDJDOC85bWxhUUFVczZWODg3WTBpMjBwbGJZVHN4Z0JzRS9ZTVNvRG1DTDE5RmZoZS9VTmdMQkZES3pVZVJUMERZQmhZWGNaRGdFY1pQdmZUZXNBQ0Z2S3cyUUF3MUpQLzJIMTdtaVgxZ0hRbGd6Z0ZTWFJrd0FZRWJsYm11OW9PRS9rMG9yY2twRjFENERJTlQzTWl5QjI2Zm55NTZub1RlM1NQUUNHQlIrZ01vQ05Da3gvbFR4TUFFUXY3bFBwbk9ZNkYwRG54cjhSQU9PQ044L0crZzUrRjV4bjQ2TVBQaWdWOEJFQzRPa3BmSWtQa3dGOHBNYjBIMWIxdnZZU0FJZkVINTB5Z0xmS1RIOTFlNUFBK0ZmOFdqK2JYbXJDZzlic053TGdxUGp0cE53WkVMOXM0cmRlZkFLZ0JTK0NlRmJtNVE5VC9QVExiMzljZlEyQkRFL0FGQTJ6L2U1UzNBNjdGSHY2dFZ0MUdTZUFPVkxzbmJlWGZvcmJZVHZUbjNjSmdQOUlVZjFIeUlDR2lrMy9JOHJmNEY0Q1lKb3NFMU1HdEZKditpdkxpUVRBYTFuYTRBZ1owRVM5Nlg5RWgzdmNTd0M4WTdoUUVvMUxHVkJleWVudnM5KzVCTUJraWNhbERDak05R2NMQWZDK1JGMXh4SzRNMEg0cDdIcFM2cnc1QVRCZnJrRzVxemR5M1ZwRHV4NVFyckdvOXM0Z0FENlVxejJPa0FFMUZKNytSL1M1MHdFQzRCVHBwdVRlREVoM2c3WHRmU0xwWnFKNk80a0F1T2RJbjZRcjJiMDNtKzRHcTlyN0lGcE4vM1EzdTVnQTRBY1prRTc1NmMrcC9ESzR4N3B0UUFidU4rTnRadGZrTVhYcnZzVUV3Q1lOcTlEV01ySW1UNmRoM3kzbUZSRHZHM2dkNUkzUUFnUHJiQlR5RVNlQXJYcHVSc2J1T3UvOVJ0YnRXZlRzdU1XY0FGYkl1elgrOVBuTFFDL2x2ZCt3eHQ3NDU1MkRTbWdOSjRBZERoWmwzbTU4NnJmOWpLUGh5bmR1dE1XY0FIYm9YRmhqOSs2RGdTT0dWMCtoc3BFVHdENzJKbjRmN3dLZEYxbUxyU1FBZGxPZ1BwMDdUL08xMVZ5TENZQVJ5dlRKSWt4bE1aOHN3aFY4QnNDZ2cvM200NEZueDlmQjRHT1lFOEFnVFh0emZJNVhXbzN0ck50TEd1b1NBbUNja24xcHluYSsySnE4eTBLOXBaV3VJZ0FPVWJndlRYeWxVMnhsbml6T3h6VFJoUVRBSVU3eGI4MTlzNTk5ZmF6R2ZUcm9XZ0xnS1B1WGQ1M3hBVytXdGVwODczdHBuMnNKZ0FrVThVZk8rNTVQdEVYcmM2Y1RhWnpMQ1lBNWxQSWRhNzd1dVhJTjY5M1JlbG9tQWdFd2gxZVpEMTN5cmYvanE1cjBzb1BUTDBFSWdHblU5RVorL3VzakNtQ2pKZ3UxZ0FDWVNXVnZKd1plOHR5MzY3TldDd2lBeWRUM1hwMlR3TFBlcTl1S25lM25xeStBMTc1Lys5cXF5bTgzMnljSldqM2ZtejdQTnhFbmdQbjhyUDlCVlNlRlozcFE1d1U4aVFBNGhYS2Zva1lTZUk3YUlTd0JjQlpGUDFldU1QRGdialJDWkFMZ1JFci9KREhEd0pONlN3c0VKd0RPcFFIV1dCOEpIc3BEaWo4K0FYQTZiWEFoM3p1OGlySlB3ZGRBYytqMjNkQlpMTm9sWXI2ajR5MS9FL2gwczJhUXBpS0ZXWVVxdkJjUUFDdklBSm93L1hNUkFJdklBTW96L2RNUkFPdklBQW96L1RQeUxhRFYvSEZ3aWxIU2VUa0JyRGF4eEIwRnVKenBuNW9BdUlBTW9BYlRQenNCY0EwWlFIYW1md0UrQTdqUzNObXRpMWhEM1piaEJIQ2x1YVh2S01BQ3BuOGxBdUJpTW9CRVRQOWl2QUlLWWZyZzFsck1wVVJMY2dJSVlYb3pPQW93a2VsZmxRQ0lRZ1lRaytsZm1GZEE0ZWczZ2xDSzVUa0JoT01vUUFTbWZ3ZE9BRUdkTWJWMUlGdW92VDZjQUlJNm8yRWNCWGpJOUcvRkNTQzBrMGEyaHVRdHhkYVFBSWp1dkcyN3p1U1pHbXRMQU9SZ2Q4WkpsRlpuQWlBTjJ6VG1VbEVJZ0V4Ty9SUlgwL2Foa0hnbUFQS3hjZU1JOWNPTkFFakpEbzRCeW9aWEJFQldaMytwWHo5WG9scDRsd0RJVFdOem53cmhEZ0dRM29LZjc5WGtHU2tNSGhJQUZhejVIUSs2UFF2MXdFWUNvSTVsditwSDU4ZWtBTmhMQUpTeTh0ZTltUUp4ZU82TUVRQUZHUWQ5ZU5ZY0lRQnFXditibjAySGxUeGZwaEFBbFJrVDlYaW1UQ1FBNnJ2azc4Q1lHbk41aUp4QkFMUnc0ZDhDTTBTTzhPQTRsUUJvNU5vL0NXbWdiT2RKc1lZQWFDZkNYd1kyWXQ3eVhGaFBBRFFWWWR3OG1UZ2VCSmNTQUswRm1UN1Arc3dneTA0UUFxQzdVTVBvcFVxRHlTSVRrd0RnNlNud2hMckpOYXFzSnlrSUFINklQN1plaVRERkxCcDVDUURla1c2b3ZUVjN6RmtRU2hJQWZLakExT1BKNk9kakFvQUh4RUJlUmovM0NRQTJFUU81R1Axc0lRRFlSeEpFWnU2eml3QmdoQmlJeHVobmdBRGdFRWx3TFhPZkl3UUFjMGlDbGN4OXBoQUFUQ1lKem1QdU01Y0E0Q3lTWUJaem41TUlBRTRuQ2NhWSs1eE5BTENPSk5qQzNHY1pBY0ExaE1GTGhqNlhFQUNFMEMwUFRId2lFQUNFVXpVTURIMmlFUUFra0RFU2pIdmlFd0JrRlNjVnpIcVNFZ0FVZEVZMm1QTFVJd0FBbXZyZjFSY0F3RFVFQUVCVEFnQ2dLUUVBMEpRQUFHaEtBQUEwSlFBQW1oSUFBRTBKQUlDbUJBQkFVd0lBb0NrQkFOQ1VBQUJvU2dBQU5DVUFBSm9TQUFCTkNRQ0FwZ1FBUUZNQ0FLQXBBUURRbEFBQWFFb0FBRFFsQUFDYUVnQUFUUWtBZ0tZRUFFQlRBZ0NnS1FFQTBKUUFBR2hLQUFBMEpRQUFtaElBQUUwSkFJQ21CQUJBVXdJQW9Da0JBTkNVQUFCb1NnQUFOQ1VBQUpvU0FBQk5DUUNBcGdRQVFGTUNBS0FwQVFEUWxBQUFhRW9BQURRbEFBQ2FFZ0FBVFFrQWdLWUVBRUJUQWdDZ0tRRUEwSlFBQUdoS0FBQTBKUUFBbWhJQUFFMEpBSUNtQkFCQVV3SUFvQ2tCQU5DVUFBQm9TZ0FBTkNVQUFKb1NBQUJOQ1FDQXBnUUFRRk1DQUtBcEFRRFFsQUFBYUVvQUFEVDFmN3JleGx5ODFjKytBQUFBQUVsRlRrU3VRbUNDIiwgInNpemVzIjogIjUxMng1MTIiLCAidHlwZSI6ICJpbWFnZS9wbmciLCAicHVycG9zZSI6ICJhbnkgbWFza2FibGUifV19">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAG0ElEQVR4nO2dy3HcOBCGIdferDB8tYLYdKwY9rAxKB4HobPDUAB7QBVrlpzmYIB+/N38v6PLItGNDw3wMeDL95+/GiH3+BbdAIIL5SAilIOIUA4iQjmICOUgIpSDiFAOIkI5iAjlICKUg4hQDiJCOYgI5SAilIOIUA4iQjmICOUgIpSDiFAOIkI5iAjlICKUg4hQDiLyV3QDYvj6/Hjq/7++vRu1BJmXK/zi7VkVRriCLmXlsBBCoqoo1eTwdOJIMUuKyBHrxJEalqSXA02LW7IrkliOFS2e7TbPc+GQUo6JrtLtofAG+JBMjqd6xac/AJukRRo5xvsgqgPwW/gsOeQYyTtOxnO19gR0OfImOm/LN6DleJhf8OS25CHgynGeVuScHkkaC6IcSVP5kHRxwb3PkS6D45w3HvBWL1blOElQai12ZAkTqHJkSdk6J+FA1Q8UOa5jRieFHxDTipSOklrsQI49vnIgZ8cBKUyE+hFcOQLNgHoUgjlCIuXwz8j6cPRvW6AfYXK45cKuPrs1NcqPGDl8sqDyXMP54QiUH0ByKMZvl2KHzrNOzjgBcpgG75bZGlGc4y2HXdjHI0e9JmgUjtaRx3G9z2G3Ntwd+fXt3S2Px3O5hWmNa+WwGA1HLVaOtohuY8KLh1/lKG/GsQGLA/1uOJ7Fw6lyWJsRrsUOxbYF1o/4ZytzIJvR/t8khKckc3hUDl330aaSE7SaGlU8YiqHSpo8L0nm2LVwuoREhWkuh1FRBdfiFqOmOsxWAZVjvWwkMqOzNThX8bCVQ9HuvGZ01v04Yl08vCvHXNfmXfDfZS4c/1FhKIdWj4JftY5jcX1rOmxcK8di16Y2o5MrA1ZyqI+MAmZ01BcfdsXDr3JM9G6xpcYR8O2jctw+L1M2OlnCMZFDZcTXm1Bu0Z1cjEqs08b4yB384+9/7/77n9//OLdkkNe3d58JF/SrCQ5lQ3Li+B+MLNn6+OvzA3Pw6MsBvop86MTJn8DWkmZjmMeCdHq7YPVoJ8xQ/PMj0ysPvuyjjErXqvuBDNyaw2JW0u3RfjT1KQZw5aFcORS7VitTRmNd67AOv/ObxnxaQRsNZSj7mqAbpkuE8usPLDl0r1McOk/lFBbvAamAJYcibsO6cP0oKwdZR1OOqN+5X5ZjenUnJqDKoRiYc6lXPB3UsgNIjo0L1hvMkBHlICAUlCPk8qHkNUtBOYgWlIOIUA4iQjmICOUgIpSDiFAOIlJQjpB3xJFfTJ+moBxEC0Q5oB4++YAZMpAcig+fnIu84umgnsBpymH9egHZYf0CDVDlIGiUlcNtZil5ndLBkkP3PWyHblM5BexOJFhyqGPqR+Ga0cm6vTXJt7014C8/jca31mEBf128Afcre4s9jXpHar3JZ7fRj8VhVyi+5rhFpVPLrzNu8ZBjetsaoxIS9edHpq9Tsm4Y57bX3RxbB4/PMimqhcWsBLfm6DjstPfQEmsnYG9vbDjJAbin0UaKwnCLW2E2WXOoeAC7a4UKumXDaODluFop5keWcIK/SH0O7EykBfiXJKzk0OrXepOL+jrUbgi5TiuLHVzAj1wZMJTDYmSk9sPiY3WmM6/3gjTLhxFNyfKJTFs5FDs1++LD4paX9ZgJuJRd/ypzOj/WzQgJOev21on8MGpq2e2tVT7p/vX5Aa7IroW5ykZr7eX7z18Op7kb3or7+J+p1mqheurGyXH7/Aj49S2+uyM4VY5mMwJ2x0ToBt0mBZaNFv5F6sVBvztmeAmpZEbzrBxN7rz1gMNLiHoD7HI1juuawy6wYwlxqyLHc7mFaY1r5eiYVku3UlwjinMC5Gj2wbvNX4pHPj9FyFobSI6mnYKHM8vI6VQOMg7CUmMjRo7mmAW7xYdbU6Mu0cPkaBG5WBfFv22BN28i5WihGRkXJbAxsbf1guVoqHnxBDYD8c9WpBSE3+70AdaMhlA5OicqIKTJAvyQ4ytH5yQdJUsIvhkNR452JT9SmNFwppWNcw+gcjdBruiAKkfnPEGpS0guMxpg5dhIl8oTksaCK0dzf65hQeoQoOVoY/MIZn7ztnwDXY5OrkTnau0JOeRoYI9C7oLfwmdJI0fnqasVnz4AbJIWyeTohG8SFN4AH1LK0Vm55+G5KWxGLTqJ5egg3xbLq0UnvRwdNEWya9EpIsdGrCU1nNioJseGpyXFnNgoK8ctFqJUFeKWS8hxZPorH5fionKQEeDe5yA4UA4iQjmICOUgIpSDiFAOIkI5iAjlICKUg4hQDiJCOYgI5SAilIOIUA4iQjmICOUgIpSDiFAOIkI5iAjlICKUg4hQDiJCOYgI5SAi/wH/c3bsLNHs7gAAAABJRU5ErkJggg==">
+<link rel="icon" type="image/png" sizes="192x192" href="data:image/png;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B2D6B;
+    --ink-soft:#3D5A80;
+    --paper:#EAF1FC;
+    --surface:#ffffff;
+    --line:#C9D9F0;
+    --amber:#2F6FED;
+    --amber-dim:#CFE0FB;
+    --teal:#1450A3;
+    --danger:#b8412f;
+    --good:#1c7a4c;
+    --radius:10px;
+    --shadow: 0 1px 2px rgba(19,34,41,0.06), 0 8px 24px -12px rgba(19,34,41,0.18);
+    font-size:16px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  html{ overflow-x:hidden; }
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+    overflow-x:hidden;
+    width:100%;
+  }
+  h1,h2,h3,.disp{font-family:'Barlow Condensed',sans-serif; letter-spacing:.01em;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+
+  /* ---------- topbar ---------- */
+  header.topbar{
+    background:var(--ink);
+    color:#FFFFFF;
+    padding:12px 20px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    position:sticky; top:0; z-index:40;
+    box-shadow:var(--shadow);
+  }
+  .lens{
+    width:34px;height:34px;border-radius:50%;
+    background:
+      radial-gradient(circle at 50% 50%, var(--amber) 0 5px, transparent 6px),
+      repeating-radial-gradient(circle at 50% 50%, #FFFFFF 0 1px, transparent 1px 7px);
+    border:2px solid #FFFFFF;
+    flex:0 0 auto;
+  }
+  .brandwrap{display:flex; flex-direction:column; line-height:1;}
+  .brandwrap .name{font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:22px; letter-spacing:.02em;}
+  .brandwrap .tag{font-size:10.5px; text-transform:uppercase; letter-spacing:.14em; color:var(--amber-dim); margin-top:2px;}
+  nav.tabs{display:flex; gap:4px; margin-left:auto; flex-wrap:wrap;}
+  nav.tabs button{
+    background:transparent; border:1px solid transparent; color:#C9D6EE;
+    font-family:'Inter',sans-serif; font-weight:600; font-size:13px;
+    padding:8px 12px; border-radius:8px; cursor:pointer;
+  }
+  nav.tabs button.active{ background:#FFFFFF; color:var(--ink); }
+  nav.tabs button:not(.active):hover{ background:rgba(255,255,255,0.08); }
+  .cart-fab{
+    display:none; margin-left:8px;
+    background:var(--amber); color:var(--ink); border:none;
+    font-weight:700; font-family:'Inter'; font-size:13px;
+    padding:9px 14px; border-radius:8px; cursor:pointer;
+  }
+  .new-fab{
+    display:none;
+    background:transparent; color:#FFFFFF; border:1px solid rgba(255,255,255,0.45);
+    font-weight:700; font-family:'Inter'; font-size:13px;
+    padding:9px 12px; border-radius:8px; cursor:pointer;
+  }
+
+  /* ---------- layout ---------- */
+  .app{ max-width:1400px; margin:0 auto; padding:20px; display:grid; grid-template-columns:1fr 380px; gap:20px; }
+  .panel{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); }
+  .panel-pad{ padding:18px 20px; }
+
+  /* ---------- catalog ---------- */
+  .catalog-head{ display:flex; gap:10px; align-items:center; padding:16px 18px 8px; flex-wrap:wrap; }
+  .catalog-head h2{ margin:0; font-size:24px; font-weight:700; }
+  .search{ flex:1; min-width:180px; position:relative; }
+  .search input{
+    width:100%; padding:9px 12px 9px 32px; border:1px solid var(--line); border-radius:8px;
+    font-family:'Inter'; font-size:14px; background:var(--paper);
+  }
+  .search::before{ content:"⌕"; position:absolute; left:10px; top:50%; transform:translateY(-40%) rotate(0deg); font-size:16px; color:var(--ink-soft); }
+  .chips{ display:flex; gap:6px; flex-wrap:wrap; padding:0 18px 14px; }
+  .chip{
+    border:1px solid var(--line); background:var(--paper); color:var(--ink-soft);
+    font-size:12.5px; font-weight:600; padding:6px 12px; border-radius:999px; cursor:pointer;
+  }
+  .chip.active{ background:var(--ink); border-color:var(--ink); color:#FFFFFF; }
+
+  .kitrow{ display:flex; gap:10px; padding:0 18px 16px; flex-wrap:wrap; }
+  .kitbtn{
+    display:flex; flex-direction:column; align-items:flex-start; gap:2px;
+    border:1px dashed var(--amber); background:#EAF3FF; color:var(--ink);
+    padding:10px 14px; border-radius:8px; cursor:pointer; text-align:left; flex:1; min-width:210px;
+  }
+  .kitbtn b{ font-size:14px; }
+  .kitbtn span{ font-size:11.5px; color:var(--ink-soft); }
+
+  .product-grid{ padding:4px 18px 20px; display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:10px; }
+  .card{
+    border:1px solid var(--line); border-radius:9px; padding:12px 13px; background:var(--surface);
+    display:flex; flex-direction:column; gap:8px; transition:border-color .15s, box-shadow .15s;
+  }
+  .card:hover{ border-color:var(--teal); box-shadow:0 4px 14px -8px rgba(19,34,41,0.3); }
+  .card .cat-tag{ font-size:10px; text-transform:uppercase; letter-spacing:.08em; color:var(--teal); font-weight:700; }
+  .card .pname{ font-size:14px; font-weight:600; line-height:1.25; min-height:36px; }
+  .card .row-bottom{ display:flex; align-items:center; justify-content:space-between; margin-top:auto; }
+  .card .price{ font-family:'JetBrains Mono'; font-weight:600; font-size:14.5px; }
+  .card .price small{ font-weight:400; color:var(--ink-soft); font-size:11px; }
+  .addbtn{
+    background:var(--ink); color:#FFFFFF; border:none; border-radius:6px;
+    width:30px; height:30px; font-size:18px; cursor:pointer; line-height:1;
+  }
+  .addbtn:active{ transform:scale(.92); }
+  .empty-state{ padding:40px 20px; text-align:center; color:var(--ink-soft); }
+
+  /* ---------- ticket / quotation panel ---------- */
+  .ticket{
+    position:sticky; top:78px; align-self:start;
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    background-image:
+      radial-gradient(circle at 0 22px, var(--paper) 6px, transparent 7px),
+      radial-gradient(circle at 100% 22px, var(--paper) 6px, transparent 7px);
+  }
+  .ticket-drag{ display:none; }
+  .ticket-close{
+    display:none; background:var(--paper); border:1px solid var(--line); color:var(--ink);
+    width:28px; height:28px; border-radius:50%; font-size:14px; cursor:pointer; line-height:1;
+    align-items:center; justify-content:center;
+  }
+  .ticket-head{ padding:16px 18px 10px; border-bottom:1px dashed var(--line); }
+  .ticket-head .row1{ display:flex; justify-content:space-between; align-items:baseline; }
+  .ticket-head h3{ margin:0; font-size:20px; font-weight:700; }
+  .qid{ font-family:'JetBrains Mono'; font-size:12px; color:var(--ink-soft); }
+  .field-grid{ display:grid; grid-template-columns:1fr 1fr; gap:8px; padding:12px 18px; border-bottom:1px dashed var(--line); }
+  .field-grid .full{ grid-column:1/-1; }
+  .field-grid label{ font-size:10.5px; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft); font-weight:700; display:block; margin-bottom:3px; }
+  .field-grid input, .field-grid select{
+    width:100%; border:1px solid var(--line); border-radius:6px; padding:7px 8px; font-family:'Inter'; font-size:13px; background:var(--paper);
+  }
+  .lineitems{ padding:10px 18px; max-height:34vh; overflow-y:auto; }
+  .lineitem{ display:flex; align-items:center; gap:8px; padding:8px 0; border-bottom:1px solid var(--paper); }
+  .lineitem .li-name{ flex:1; font-size:13px; font-weight:600; line-height:1.25; }
+  .lineitem .li-name small{ display:block; font-weight:400; color:var(--ink-soft); font-family:'JetBrains Mono'; font-size:11px; margin-top:2px; }
+  .qtybox{ display:flex; align-items:center; border:1px solid var(--line); border-radius:6px; overflow:hidden; }
+  .qtybox button{ background:var(--paper); border:none; width:22px; height:24px; cursor:pointer; font-size:14px; }
+  .qtybox input{ width:32px; border:none; text-align:center; font-family:'JetBrains Mono'; font-size:12.5px; padding:0; background:var(--surface); }
+  .li-total{ width:74px; text-align:right; font-family:'JetBrains Mono'; font-size:13px; font-weight:600; }
+  .li-del{ background:none; border:none; color:var(--danger); cursor:pointer; font-size:15px; padding:0 2px; }
+  .ticket-empty{ padding:26px 18px; text-align:center; color:var(--ink-soft); font-size:13px; }
+
+  .totals{ padding:12px 18px; border-top:1px dashed var(--line); }
+  .trow{ display:flex; justify-content:space-between; font-size:13px; padding:3px 0; }
+  .trow.grand{ font-size:19px; font-weight:800; font-family:'JetBrains Mono'; border-top:1px solid var(--line); margin-top:6px; padding-top:8px; }
+  .trow input[type=number]{ width:64px; text-align:right; border:1px solid var(--line); border-radius:5px; font-family:'JetBrains Mono'; font-size:12.5px; padding:2px 4px; }
+  .toggle-row{ display:flex; align-items:center; gap:6px; font-size:12.5px; }
+
+  .ticket-actions{ display:flex; flex-direction:column; gap:8px; padding:14px 18px 18px; }
+  .action-row{ display:flex; gap:8px; }
+  .action-row .btn{ flex:1; }
+  .btn{ border:none; border-radius:8px; padding:10px 14px; font-family:'Inter'; font-weight:700; font-size:13px; cursor:pointer; flex:1; }
+  .btn.primary{ background:var(--amber); color:var(--ink); }
+  .btn.ghost{ background:var(--paper); color:var(--ink); border:1px solid var(--line); }
+  .btn.dark{ background:var(--ink); color:#FFFFFF; }
+  .btn.whatsapp{ background:#25D366; color:#FFFFFF; }
+  .btn:disabled{ opacity:.45; cursor:not-allowed; }
+
+  /* ---------- saved quotes / settings tabs ---------- */
+  .list-panel{ padding:18px 20px; }
+  .saved-row{ display:flex; align-items:center; gap:12px; padding:12px 0; border-bottom:1px solid var(--paper); }
+  .saved-row .sq-id{ font-family:'JetBrains Mono'; font-size:12px; background:var(--paper); padding:3px 8px; border-radius:5px; }
+  .saved-row .sq-meta{ flex:1; }
+  .saved-row .sq-meta b{ font-size:14px; }
+  .saved-row .sq-meta div{ font-size:12px; color:var(--ink-soft); }
+  .saved-row .sq-total{ font-family:'JetBrains Mono'; font-weight:700; }
+  .saved-row button{ border:1px solid var(--line); background:var(--surface); border-radius:6px; padding:6px 10px; font-size:12px; cursor:pointer; }
+
+  .settings-form{ display:grid; grid-template-columns:1fr 1fr; gap:14px; max-width:640px; }
+  .settings-form label{ font-size:11.5px; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft); font-weight:700; display:block; margin-bottom:4px; }
+  .settings-form input, .settings-form textarea{ width:100%; border:1px solid var(--line); border-radius:7px; padding:9px 10px; font-family:'Inter'; font-size:14px; }
+  .settings-form .full{ grid-column:1/-1; }
+
+  /* ---------- admin ---------- */
+  .admin-login{ max-width:360px; margin:20px 0; display:flex; flex-direction:column; gap:12px; }
+  .admin-login label{ font-size:11.5px; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft); font-weight:700; display:block; margin-bottom:4px; }
+  .admin-login input{ width:100%; border:1px solid var(--line); border-radius:7px; padding:9px 10px; font-family:'Inter'; font-size:14px; }
+  .admin-login .err{ color:var(--danger); font-size:12.5px; display:none; }
+  .admin-bar{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; margin-bottom:14px; }
+  .admin-bar .who{ font-size:13px; color:var(--ink-soft); }
+  .admin-addform{ display:grid; grid-template-columns:2fr 1fr 1fr auto; gap:8px; align-items:end; padding:14px; background:var(--paper); border:1px solid var(--line); border-radius:9px; margin-bottom:18px; }
+  .admin-addform .fld label{ font-size:10.5px; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft); font-weight:700; display:block; margin-bottom:3px; }
+  .admin-addform input, .admin-addform select{ width:100%; border:1px solid var(--line); border-radius:6px; padding:8px 9px; font-family:'Inter'; font-size:13.5px; background:var(--surface); }
+  .admin-search{ margin-bottom:10px; max-width:320px; }
+  .admin-search input{ width:100%; border:1px solid var(--line); border-radius:7px; padding:8px 10px; font-family:'Inter'; font-size:14px; background:var(--paper); }
+  .admin-row{ display:flex; align-items:center; gap:10px; padding:10px 0; border-bottom:1px solid var(--paper); flex-wrap:wrap; }
+  .admin-row .an-name{ flex:1; min-width:180px; font-size:13.5px; font-weight:600; }
+  .admin-row .an-cat{ font-size:11px; color:var(--teal); font-weight:700; text-transform:uppercase; letter-spacing:.05em; min-width:110px; }
+  .admin-row .an-price{ width:110px; border:1px solid var(--line); border-radius:6px; padding:6px 8px; font-family:'JetBrains Mono'; font-size:13px; }
+  .admin-row .an-save{ background:var(--good); color:#fff; border:none; border-radius:6px; padding:6px 10px; font-size:12px; font-weight:700; cursor:pointer; }
+  .admin-row .an-reset{ background:var(--surface); color:var(--ink-soft); border:1px solid var(--line); border-radius:6px; padding:6px 10px; font-size:12px; cursor:pointer; }
+  .admin-row .an-del{ background:none; border:none; color:var(--danger); cursor:pointer; font-size:15px; padding:0 4px; }
+  .admin-row .an-tag{ font-size:10px; background:var(--amber-dim); color:var(--ink); padding:2px 6px; border-radius:5px; font-weight:700; }
+
+  .hint{ font-size:12px; color:var(--ink-soft); margin-top:10px; line-height:1.5; }
+  .install-card{
+    display:flex; align-items:center; gap:14px; margin-top:26px; max-width:640px;
+    background:var(--paper); border:1px solid var(--line); border-radius:12px; padding:16px 18px;
+  }
+  .install-card h3{ margin:0; font-size:17px; }
+  .install-icon{
+    width:44px; height:44px; border-radius:12px; flex:0 0 auto;
+    background:var(--ink);
+    background-image:
+      radial-gradient(circle at 50% 50%, var(--amber) 0 4px, transparent 5px),
+      repeating-radial-gradient(circle at 50% 50%, #FFFFFF 0 1px, transparent 1px 6px);
+  }
+  .toast{ position:fixed; bottom:18px; left:50%; transform:translateX(-50%); background:var(--ink); color:#FFFFFF; padding:10px 18px; border-radius:8px; font-size:13px; font-weight:600; z-index:80; opacity:0; pointer-events:none; transition:opacity .2s, transform .2s; }
+  .toast.show{ opacity:1; transform:translateX(-50%) translateY(-4px); }
+
+  .catalog-panel, .ticket{ display:none; }
+  .catalog-panel.active{ display:block; }
+  .ticket.active{ display:block; }
+  .list-panel{ display:none; }
+  .list-panel.active{ display:block; }
+
+  @media (max-width: 940px){
+    .app{ grid-template-columns:1fr; padding:12px; }
+    .ticket{ position:fixed; left:0; right:0; bottom:0; top:auto; border-radius:16px 16px 0 0; max-height:88vh; overflow-y:auto; transform:translateY(102%); transition:transform .25s ease; z-index:60; }
+    .ticket.open{ transform:translateY(0); }
+    .cart-fab{ display:inline-block; }
+    .new-fab{ display:inline-block; margin-left:auto; }
+    .settings-form{ grid-template-columns:1fr; }
+    nav.tabs{ order:3; width:100%; justify-content:flex-start; }
+    header.topbar{ flex-wrap:wrap; }
+    .kitrow{ flex-direction:column; }
+    .kitbtn{ min-width:0; width:100%; }
+    .ticket-drag{ display:block; width:40px; height:5px; border-radius:3px; background:var(--line); margin:10px auto 0; }
+    .ticket-close{ display:flex; }
+    .product-grid{ grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); padding:4px 14px 20px; }
+    .catalog-head{ padding:14px 14px 8px; }
+    .catalog-head h2{ font-size:20px; }
+    .chips{ padding:0 14px 12px; }
+    .field-grid{ grid-template-columns:1fr 1fr; padding:12px 14px; }
+  }
+
+  @media (max-width: 480px){
+    .brandwrap .name{ font-size:19px; }
+    .brandwrap .tag{ display:none; }
+    header.topbar{ padding:10px 12px; gap:10px; }
+    nav.tabs button{ padding:7px 10px; font-size:12.5px; }
+    .product-grid{ grid-template-columns:1fr 1fr; }
+    .field-grid{ grid-template-columns:1fr; }
+  }
+
+  @media print{
+    header.topbar, nav.tabs, .cart-fab, .catalog-panel, .ticket-actions, .toast, .print-hide{ display:none !important; }
+    body{ background:#fff; }
+    .app{ display:block; padding:0; }
+    .ticket{ position:static; box-shadow:none; border:none; background-image:none; }
+    .lineitems{ max-height:none; overflow:visible; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="lens"></div>
+  <div class="brandwrap">
+    <span class="name">ApertureQuote</span>
+    <span class="tag">CCTV Quotation Builder</span>
+  </div>
+  <nav class="tabs">
+    <button data-tab="builder" class="active">Build Quote</button>
+    <button data-tab="saved">Saved Quotes</button>
+    <button data-tab="settings">Company Settings</button>
+    <button data-tab="admin">Admin</button>
+  </nav>
+  <button class="new-fab" id="newFab" title="Start new quotation">+ New</button>
+  <button class="cart-fab" id="cartFab">Quote · <span class="mono" id="fabTotal">₹0</span></button>
+</header>
+
+<div class="app">
+
+  <!-- ===== BUILDER VIEW ===== -->
+    <div class="panel catalog-panel active" data-view="builder">
+      <div class="catalog-head">
+        <h2>Product Catalog</h2>
+        <div class="search"><input id="searchInput" placeholder="Search products…" /></div>
+      </div>
+      <div class="chips" id="chipRow"></div>
+      <div class="kitrow">
+        <button class="kitbtn" id="loadAnalogKit">
+          <b>⚡ Load Analog Kit</b>
+          <span>4ch DVR + 2 Dome + 2 Bullet + HDD + accessories</span>
+        </button>
+        <button class="kitbtn" id="loadIpKit">
+          <b>⚡ Load IP Kit</b>
+          <span>4ch NVR + 2 IP Dome + 2 IP Bullet + PoE + HDD</span>
+        </button>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+    </div>
+
+    <aside class="ticket active" id="ticket" data-view="builder">
+      <div class="ticket-drag" id="ticketDrag"></div>
+      <div class="ticket-head">
+        <div class="row1">
+          <h3>Quotation</h3>
+          <span style="display:flex; align-items:center; gap:10px;">
+            <span class="qid mono" id="quoteId">#Q-0001</span>
+            <button class="ticket-close" id="ticketCloseBtn" title="Close" aria-label="Close">✕</button>
+          </span>
+        </div>
+        <div class="qid mono" id="quoteDate" style="margin-top:2px;"></div>
+      </div>
+
+      <div class="field-grid">
+        <div class="full"><label>Customer name</label><input id="custName" placeholder="Walk-in / Company name"></div>
+        <div><label>Phone</label><input id="custPhone" placeholder="+91 …"></div>
+        <div><label>Site</label><input id="custSite" placeholder="Shop / Office / Home"></div>
+        <div class="full"><label>Address</label><input id="custAddr" placeholder="Installation address"></div>
+      </div>
+
+      <div class="lineitems" id="lineItems"></div>
+
+      <div class="totals">
+        <div class="trow"><span>Subtotal</span><span class="mono" id="tSub">₹0</span></div>
+        <div class="trow"><span class="toggle-row"><input type="checkbox" id="gstToggle"> GST 18%</span><span class="mono" id="tGst">₹0</span></div>
+        <div class="trow"><span>Discount ₹</span><input type="number" id="discInput" min="0" value="0"></div>
+        <div class="trow grand"><span>Total</span><span class="mono" id="tGrand">₹0</span></div>
+      </div>
+
+      <div class="ticket-actions">
+        <div class="action-row">
+          <button class="btn ghost" id="newQuoteBtn">New</button>
+          <button class="btn ghost" id="downloadPdfBtn">⬇ PDF</button>
+          <button class="btn dark" id="printBtn">🖨 Print</button>
+        </div>
+        <button class="btn whatsapp" id="shareWaBtn">📲 Share Quotation via WhatsApp</button>
+        <button class="btn primary" id="saveQuoteBtn">💾 Save Quotation</button>
+      </div>
+    </aside>
+
+  <!-- ===== SAVED VIEW ===== -->
+  <div data-view="saved" class="panel list-panel" style="grid-column:1/-1;">
+    <h2 style="margin-top:0;">Saved Quotations</h2>
+    <div id="savedList"></div>
+    <p class="hint" id="savedEmpty">No saved quotations yet. Build one and hit Save.</p>
+  </div>
+
+  <!-- ===== SETTINGS VIEW ===== -->
+  <div data-view="settings" class="panel list-panel" style="grid-column:1/-1;">
+    <h2 style="margin-top:0;">Company Settings</h2>
+    <div class="settings-form">
+      <div class="full"><label>Company name</label><input id="setCompany" placeholder="Your CCTV Company"></div>
+      <div><label>Phone</label><input id="setPhone" placeholder="+91 …"></div>
+      <div><label>Email</label><input id="setEmail" placeholder="you@company.com"></div>
+      <div class="full"><label>Address</label><input id="setAddress" placeholder="Shop address"></div>
+      <div class="full"><label>Terms / Notes (printed on quote)</label><textarea id="setTerms" rows="3" placeholder="e.g. 1 year warranty on DVR/NVR. Installation charges extra. Prices valid for 7 days."></textarea></div>
+    </div>
+    <button class="btn primary" id="saveSettingsBtn" style="max-width:200px; margin-top:14px;">Save Settings</button>
+    <p class="hint">These details print on the header of every quotation. Everything here — settings, the price catalog, and saved quotations — stays stored locally in this browser on this device.</p>
+
+    <div class="install-card" id="installCard">
+      <div class="install-icon"></div>
+      <div style="flex:1; min-width:0;">
+        <h3 style="margin:0 0 4px;">Install as an app</h3>
+        <p id="installNotice" class="hint" style="margin:0 0 8px; display:none;"></p>
+        <ol id="installSteps" class="hint" style="margin:0; padding-left:18px;"></ol>
+      </div>
+      <button class="btn primary" id="installBtn" style="flex:0 0 auto; display:none;">Install</button>
+    </div>
+  </div>
+
+  <!-- ===== ADMIN VIEW ===== -->
+  <div data-view="admin" class="panel list-panel" style="grid-column:1/-1;">
+    <h2 style="margin-top:0;">Admin — Products &amp; Pricing</h2>
+
+    <div id="adminLoginBox" class="admin-login">
+      <div>
+        <label>Admin ID</label>
+        <input id="adminUser" placeholder="Admin ID" autocomplete="username">
+      </div>
+      <div>
+        <label>Password</label>
+        <input id="adminPass" type="password" placeholder="Password" autocomplete="current-password">
+      </div>
+      <p class="err" id="adminErr">Incorrect ID or password.</p>
+      <button class="btn primary" id="adminLoginBtn" style="max-width:160px;">Log in</button>
+    </div>
+
+    <div id="adminPanelBox" style="display:none;">
+      <div class="admin-bar">
+        <span class="who">Logged in as <b id="adminWho"></b></span>
+        <button class="btn ghost" id="adminLogoutBtn" style="max-width:120px;">Log out</button>
+      </div>
+
+      <h3 style="margin:0 0 10px;">Add a new product</h3>
+      <div class="admin-addform">
+        <div class="fld"><label>Product name</label><input id="adminNewName" placeholder="e.g. HIKVISION CAMERA DOME 2MP"></div>
+        <div class="fld"><label>Category</label><input id="adminNewCat" list="adminCatList" placeholder="e.g. Camera (IP)"></div>
+        <datalist id="adminCatList"></datalist>
+        <div class="fld"><label>Price ₹</label><input id="adminNewPrice" type="number" min="0" placeholder="0"></div>
+        <button class="btn primary" id="adminAddBtn">+ Add</button>
+      </div>
+
+      <h3 style="margin:18px 0 8px;">Edit prices</h3>
+      <div class="admin-search"><input id="adminSearch" placeholder="Search products…"></div>
+      <div id="adminProductList"></div>
+      <p class="hint">Changes save instantly and sync to every device using this app. Products marked <span class="an-tag">custom</span> were added by an admin and can be deleted; catalog items can only have their price changed or reset.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- print-only header, populated by JS -->
+<div id="printHeader" style="display:none;"></div>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-database-compat.js"></script>
+<script>
+(function(){
+
+  /* ---------------- firebase cloud sync ---------------- */
+  var firebaseConfig = {
+    apiKey: "AIzaSyCyXe6LYRnsllz8hSuVXt3JPiDSvEE7DIY",
+    authDomain: "enquary-d674e.firebaseapp.com",
+    databaseURL: "https://enquary-d674e-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "enquary-d674e",
+    storageBucket: "enquary-d674e.firebasestorage.app",
+    messagingSenderId: "944541457815",
+    appId: "1:944541457815:web:258a3f8d12e0b5df0638d2"
+  };
+
+  var fbEnabled = false;
+  var fbDB = null;
+  try{
+    if (window.firebase) {
+      firebase.initializeApp(firebaseConfig);
+      fbDB = firebase.database();
+      fbEnabled = true;
+    }
+  }catch(e){ console.warn("Firebase init failed — running on local storage only.", e); }
+
+  function cloudSet(key, val){
+    if(!fbEnabled) return;
+    try{ fbDB.ref(key).set(val); }catch(e){ console.warn("Cloud write failed for "+key, e); }
+  }
+  function cloudGetOnce(key, cb){
+    if(!fbEnabled) return;
+    fbDB.ref(key).once("value").then(function(snap){
+      var v = snap.val();
+      if(v !== null && v !== undefined) cb(v);
+    }).catch(function(e){ console.warn("Cloud read failed for "+key, e); });
+  }
+  function cloudWatch(key, cb){
+    if(!fbEnabled) return;
+    fbDB.ref(key).on("value", function(snap){
+      var v = snap.val();
+      if(v !== null && v !== undefined) cb(v);
+    });
+  }
+  "use strict";
+
+  /* ---------------- catalog ---------------- */
+  var BASE_PRODUCTS = [
+    // DVR
+    ["CP PLUS 4 CHANEL DVR 2MP",3700,"DVR"],
+    ["CP PLUS 8 CHANEL DVR 2MP",4850,"DVR"],
+    ["CP PLUS 16 CHANEL DVR 2MP",7600,"DVR"],
+    ["HIKVISION 4 CHANEL DVR 2MP",3200,"DVR"],
+    ["HIKVISION 8 CHANEL DVR 2MP",4550,"DVR"],
+    ["HIKVISION 16 CHANEL DVR 2MP",7500,"DVR"],
+    ["DAHUA 4 CHANEL DVR 2MP",3600,"DVR"],
+    ["DAHUA 8 CHANEL DVR 2MP",4700,"DVR"],
+    ["DAHUA 16 CHANEL DVR 2MP",7500,"DVR"],
+    ["HIKVISION 4 CHANEL DVR 5MP",4900,"DVR"],
+    ["HIKVISION 8 CHANEL DVR 5MP",6850,"DVR"],
+    ["HIKVISION 16 CHANEL DVR 5MP",11950,"DVR"],
+    // NVR
+    ["CP PLUS 4 CHANEL NVR",4750,"NVR"],
+    ["CP PLUS 8 CHANEL NVR",5500,"NVR"],
+    ["CP PLUS 16 CHANEL NVR",8050,"NVR"],
+    ["CP PLUS 32 CHANEL NVR",15100,"NVR"],
+    ["HIKVISION 4 CHANEL NVR",5100,"NVR"],
+    ["HIKVISION 8 CHANEL NVR",5900,"NVR"],
+    ["HIKVISION 16 CHANEL NVR",7900,"NVR"],
+    ["HIKVISION 32 CHANEL NVR",18550,"NVR"],
+    ["PRIZOR 10 CHANEL NVR",4900,"NVR"],
+    ["DAHUA 4 CHANEL NVR",4600,"NVR"],
+    ["DAHUA 8 CHANEL NVR",5800,"NVR"],
+    ["DAHUA 16 CHANEL NVR",6400,"NVR"],
+    // Analog cameras
+    ["CP PLUS CAMERA DOME 2MP",950,"Camera (Analog)"],
+    ["CP PLUS CAMERA DOME 2MP (A)",1200,"Camera (Analog)"],
+    ["CP PLUS CAMERA DOME 2MP (C+A)",1400,"Camera (Analog)"],
+    ["CP PLUS CAMERA BULLET 2MP",1000,"Camera (Analog)"],
+    ["CP PLUS CAMERA BULLET 2MP (A)",1250,"Camera (Analog)"],
+    ["CP PLUS CAMERA BULLET 2MP (C+A)",1450,"Camera (Analog)"],
+    ["HIKVISION CAMERA DOME 2MP",950,"Camera (Analog)"],
+    ["HIKVISION CAMERA DOME 2MP (A)",1150,"Camera (Analog)"],
+    ["HIKVISION CAMERA DOME 2MP (C+A)",1500,"Camera (Analog)"],
+    ["HIKVISION CAMERA BULLET 2MP",1000,"Camera (Analog)"],
+    ["HIKVISION CAMERA BULLET 2MP (A)",1250,"Camera (Analog)"],
+    ["HIKVISION CAMERA BULLET 2MP (C+A)",1550,"Camera (Analog)"],
+    ["HIKVISION CAMERA DOME 5MP (A)",1650,"Camera (Analog)"],
+    ["HIKVISION CAMERA DOME 5MP (A+C)",2000,"Camera (Analog)"],
+    ["HIKVISION CAMERA DOME 5MP (A+FC)",2750,"Camera (Analog)"],
+    ["HIKVISION CAMERA BULLET 5MP (A)",1750,"Camera (Analog)"],
+    ["HIKVISION CAMERA BULLET 5MP (A+C)",2100,"Camera (Analog)"],
+    ["HIKVISION CAMERA BULLET 5MP (A+FC)",2850,"Camera (Analog)"],
+    ["DAHUA CAMERA DOME 2MP",950,"Camera (Analog)"],
+    ["DAHUA CAMERA DOME 2MP (C)",1450,"Camera (Analog)"],
+    ["DAHUA CAMERA BULLET 2MP",1000,"Camera (Analog)"],
+    ["DAHUA CAMERA BULLET 2MP (A)",1400,"Camera (Analog)"],
+    ["DAHUA CAMERA BULLET 2MP (C)",1650,"Camera (Analog)"],
+    // IP cameras
+    ["CP PLUS CAMERA IP DOME 2MP (A)",3200,"Camera (IP)"],
+    ["CP PLUS CAMERA IP DOME 4MP (A)",4350,"Camera (IP)"],
+    ["CP PLUS CAMERA IP BULLET 2MP (A)",3300,"Camera (IP)"],
+    ["CP PLUS CAMERA IP BULLET 4MP (A)",4450,"Camera (IP)"],
+    ["PRIZOR CAMERA IP DOME 2MP (FC+A)",2400,"Camera (IP)"],
+    ["PRIZOR CAMERA IP BULLET 2MP (FC+A)",2500,"Camera (IP)"],
+    ["HIKVISION CAMERA IP DOME 2MP",3300,"Camera (IP)"],
+    ["HIKVISION CAMERA IP DOME 4MP",3900,"Camera (IP)"],
+    ["HIKVISION CAMERA IP BULLET 2MP",3400,"Camera (IP)"],
+    ["HIKVISION CAMERA IP BULLET 4MP",4100,"Camera (IP)"],
+    ["DAHUA CAMERA IP DOME 2MP (A)",2600,"Camera (IP)"],
+    ["DAHUA CAMERA IP DOME 2MP (A) II",2800,"Camera (IP)"],
+    ["DAHUA CAMERA IP DOME 4MP (A+C)",4900,"Camera (IP)"],
+    ["IP NERVES CAMERA DOME 2MP (A)",1700,"Camera (IP)"],
+    ["IP NERVES CAMERA BULLET 2MP (A)",1800,"Camera (IP)"],
+    ["UNIVIEW CAMERA DOME (A)",3100,"Camera (IP)"],
+    ["UNIVIEW CAMERA BULLET (A)",3200,"Camera (IP)"],
+    // Storage
+    ["HDD 500GB (RC)",2400,"Storage"],
+    ["HDD 1TB (RC)",5700,"Storage"],
+    ["HDD 2TB (RC)",8900,"Storage"],
+    ["HDD 4TB (RC)",14500,"Storage"],
+    // Accessories / Network / Power
+    ["BNC",30,"Accessories"],
+    ["DC",30,"Accessories"],
+    ["PVC BOX",30,"Accessories"],
+    ["CCTV CABLE",16,"Accessories"],
+    ["CCTV SMPS 12V 10 AMP",700,"Accessories"],
+    ["CCTV SMPS 12V 20 AMP",1500,"Accessories"],
+    ["2U RACK",650,"Accessories"],
+    ["4U RACK",1400,"Accessories"],
+    ["POE 4 PORT",1350,"Network"],
+    ["POE 8 PORT",1750,"Network"],
+    ["RJ45",5,"Network"],
+    ["CAT6",37,"Network"],
+    ["CAT6 (OUTDOOR)",43,"Network"],
+    ["19\" MONITOR",2500,"Accessories"]
+  ].map(function(p,i){ return {id:"p"+i, name:p[0], price:p[1], category:p[2]}; });
+
+  var ANALOG_KIT = [
+    ["CP PLUS 4 CHANEL DVR 2MP",1],["CP PLUS CAMERA DOME 2MP",2],["CP PLUS CAMERA BULLET 2MP",2],
+    ["CCTV SMPS 12V 10 AMP",1],["HDD 1TB (RC)",1],["BNC",8],["DC",4],["PVC BOX",4],
+    ["CCTV CABLE",40],["2U RACK",1]
+  ];
+  var IP_KIT = [
+    ["CP PLUS 4 CHANEL NVR",1],["CP PLUS CAMERA IP DOME 2MP (A)",2],["CP PLUS CAMERA IP BULLET 2MP (A)",2],
+    ["HDD 2TB (RC)",1],["POE 4 PORT",1],["RJ45",10],["CAT6",40],["PVC BOX",4],
+    ["2U RACK",1],["19\" MONITOR",1]
+  ];
+
+  var LS = {
+    settings:"aq_settings", overrides:"aq_price_overrides", saved:"aq_saved_quotes", counter:"aq_quote_counter", custom:"aq_custom_products"
+  };
+
+  /* ---------------- admin ---------------- */
+  var ADMIN_USER = "eldorado";
+  var ADMIN_PASS = "Eldorado@1";
+  var ADMIN_SESSION_KEY = "aq_admin_session";
+
+  function loadJSON(key, fallback){
+    try{ var v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; }catch(e){ return fallback; }
+  }
+  function saveJSON(key, val){
+    try{ localStorage.setItem(key, JSON.stringify(val)); }catch(e){}
+    cloudSet(key, val);
+  }
+  function saveLocalOnly(key, val){ try{ localStorage.setItem(key, JSON.stringify(val)); }catch(e){} }
+
+  var overrides = loadJSON(LS.overrides, {});
+  var customProducts = loadJSON(LS.custom, []); // admin-added products: {id, name, price, category}
+  var settings = loadJSON(LS.settings, {company:"Your CCTV Company", phone:"", email:"", address:"", terms:"1 year warranty on DVR/NVR as per manufacturer policy. Installation & wiring charged separately unless mentioned. Prices valid for 7 days from quote date."});
+
+  var PRODUCTS = [];
+  var CATEGORIES = [];
+
+  function rebuildProducts(){
+    var all = BASE_PRODUCTS.concat(customProducts);
+    PRODUCTS = all.map(function(p){
+      var price = overrides.hasOwnProperty(p.name) ? overrides[p.name] : p.price;
+      return {id:p.id, name:p.name, price:price, category:p.category, custom: customProducts.indexOf(p) > -1};
+    });
+    CATEGORIES = ["All"].concat(Array.from(new Set(PRODUCTS.map(function(p){return p.category;}))));
+  }
+  rebuildProducts();
+
+  /* ---------------- state ---------------- */
+  var state = {
+    filterCat: "All",
+    search: "",
+    cart: [], // {name, price, qty, category}
+    quoteId: null,
+    quoteDate: null,
+    gst: false,
+    discount: 0
+  };
+
+  function fmt(n){
+    n = Math.round(n);
+    return "₹" + n.toLocaleString("en-IN");
+  }
+
+  function nextQuoteId(){
+    var c = loadJSON(LS.counter, 0) + 1;
+    saveJSON(LS.counter, c);
+    return "Q-" + String(c).padStart(4,"0");
+  }
+
+  function startNewQuote(){
+    state.cart = [];
+    state.quoteId = nextQuoteId();
+    state.quoteDate = new Date();
+    state.gst = false;
+    state.discount = 0;
+    document.getElementById("custName").value = "";
+    document.getElementById("custPhone").value = "";
+    document.getElementById("custSite").value = "";
+    document.getElementById("custAddr").value = "";
+    document.getElementById("gstToggle").checked = false;
+    document.getElementById("discInput").value = 0;
+    renderTicket();
+  }
+
+  /* ---------------- rendering: catalog ---------------- */
+  function renderChips(){
+    var row = document.getElementById("chipRow");
+    row.innerHTML = "";
+    CATEGORIES.forEach(function(cat){
+      var b = document.createElement("button");
+      b.className = "chip" + (state.filterCat===cat ? " active" : "");
+      b.textContent = cat;
+      b.onclick = function(){ state.filterCat = cat; renderChips(); renderGrid(); };
+      row.appendChild(b);
+    });
+  }
+
+  function renderGrid(){
+    var grid = document.getElementById("productGrid");
+    grid.innerHTML = "";
+    var q = state.search.trim().toLowerCase();
+    var items = PRODUCTS.filter(function(p){
+      var okCat = state.filterCat === "All" || p.category === state.filterCat;
+      var okSearch = !q || p.name.toLowerCase().indexOf(q) > -1;
+      return okCat && okSearch;
+    });
+    if(!items.length){
+      grid.innerHTML = '<div class="empty-state">No products match your search.</div>';
+      return;
+    }
+    items.forEach(function(p){
+      var card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML =
+        '<span class="cat-tag">'+p.category+'</span>'+
+        '<span class="pname">'+p.name+'</span>'+
+        '<div class="row-bottom">'+
+          '<span class="price mono">'+fmt(p.price)+'<small> /unit</small></span>'+
+          '<button class="addbtn" title="Add to quote">+</button>'+
+        '</div>';
+      card.querySelector(".addbtn").onclick = function(){ addToCart(p.name, p.price, p.category, 1); };
+      grid.appendChild(card);
+    });
+  }
+
+  function addToCart(name, price, category, qty){
+    var existing = state.cart.find(function(i){ return i.name === name; });
+    if(existing){ existing.qty += qty; }
+    else{ state.cart.push({name:name, price:price, category:category, qty:qty}); }
+    renderTicket();
+    showToast(name + " added · tap Quote to review");
+  }
+
+  function loadKit(kit, label){
+    kit.forEach(function(row){
+      var prod = PRODUCTS.find(function(p){ return p.name === row[0]; });
+      if(prod){ addToCart(prod.name, prod.price, prod.category, row[1]); }
+    });
+    showToast(label + " loaded");
+  }
+
+  /* ---------------- rendering: ticket ---------------- */
+  function renderTicket(){
+    document.getElementById("quoteId").textContent = "#" + (state.quoteId || "Q-0000");
+    document.getElementById("quoteDate").textContent = state.quoteDate ? state.quoteDate.toLocaleDateString("en-IN",{day:"2-digit",month:"short",year:"numeric"}) : "";
+
+    var wrap = document.getElementById("lineItems");
+    wrap.innerHTML = "";
+    if(!state.cart.length){
+      wrap.innerHTML = '<div class="ticket-empty">Your quotation is empty.<br>Tap "+" on any product to add it here.</div>';
+    } else {
+      state.cart.forEach(function(item, idx){
+        var row = document.createElement("div");
+        row.className = "lineitem";
+        row.innerHTML =
+          '<div class="li-name">'+item.name+'<small>'+fmt(item.price)+' × '+item.qty+'</small></div>'+
+          '<div class="qtybox">'+
+            '<button class="dec">−</button>'+
+            '<input class="qtyval mono" value="'+item.qty+'" inputmode="numeric">'+
+            '<button class="inc">+</button>'+
+          '</div>'+
+          '<div class="li-total mono">'+fmt(item.price*item.qty)+'</div>'+
+          '<button class="li-del">✕</button>';
+        row.querySelector(".dec").onclick = function(){ changeQty(idx, -1); };
+        row.querySelector(".inc").onclick = function(){ changeQty(idx, 1); };
+        row.querySelector(".li-del").onclick = function(){ state.cart.splice(idx,1); renderTicket(); };
+        row.querySelector(".qtyval").onchange = function(e){
+          var v = parseInt(e.target.value,10);
+          if(isNaN(v) || v < 1) v = 1;
+          state.cart[idx].qty = v;
+          renderTicket();
+        };
+        wrap.appendChild(row);
+      });
+    }
+    updateTotals();
+  }
+
+  function changeQty(idx, delta){
+    state.cart[idx].qty = Math.max(1, state.cart[idx].qty + delta);
+    renderTicket();
+  }
+
+  function updateTotals(){
+    var sub = state.cart.reduce(function(s,i){ return s + i.price*i.qty; }, 0);
+    var gstAmt = state.gst ? sub * 0.18 : 0;
+    var disc = state.discount || 0;
+    var grand = Math.max(0, sub + gstAmt - disc);
+    document.getElementById("tSub").textContent = fmt(sub);
+    document.getElementById("tGst").textContent = fmt(gstAmt);
+    document.getElementById("tGrand").textContent = fmt(grand);
+    document.getElementById("fabTotal").textContent = fmt(grand);
+    var hasItems = state.cart.length > 0;
+    document.getElementById("saveQuoteBtn").disabled = !hasItems;
+    document.getElementById("printBtn").disabled = !hasItems;
+    document.getElementById("downloadPdfBtn").disabled = !hasItems;
+    document.getElementById("shareWaBtn").disabled = !hasItems;
+  }
+
+  /* ---------------- saved quotes ---------------- */
+  function currentQuoteObject(){
+    var sub = state.cart.reduce(function(s,i){ return s + i.price*i.qty; }, 0);
+    var gstAmt = state.gst ? sub*0.18 : 0;
+    var grand = Math.max(0, sub + gstAmt - state.discount);
+    return {
+      id: state.quoteId,
+      date: state.quoteDate.toISOString(),
+      customer: {
+        name: document.getElementById("custName").value,
+        phone: document.getElementById("custPhone").value,
+        site: document.getElementById("custSite").value,
+        addr: document.getElementById("custAddr").value
+      },
+      items: state.cart.map(function(i){ return {name:i.name, price:i.price, qty:i.qty}; }),
+      gst: state.gst,
+      discount: state.discount,
+      subtotal: sub, gstAmount: gstAmt, total: grand
+    };
+  }
+
+  function saveCurrentQuote(){
+    var list = loadJSON(LS.saved, []);
+    var q = currentQuoteObject();
+    list.unshift(q);
+    saveJSON(LS.saved, list);
+    showToast("Quotation " + q.id + " saved");
+    renderSavedList();
+  }
+
+  function renderSavedList(){
+    var list = loadJSON(LS.saved, []);
+    var wrap = document.getElementById("savedList");
+    var empty = document.getElementById("savedEmpty");
+    wrap.innerHTML = "";
+    empty.style.display = list.length ? "none" : "block";
+    list.forEach(function(q, idx){
+      var row = document.createElement("div");
+      row.className = "saved-row";
+      var d = new Date(q.date);
+      row.innerHTML =
+        '<span class="sq-id mono">#'+q.id+'</span>'+
+        '<div class="sq-meta"><b>'+(q.customer.name || "Walk-in customer")+'</b>'+
+        '<div>'+d.toLocaleDateString("en-IN")+' · '+q.items.length+' item(s)</div></div>'+
+        '<span class="sq-total mono">'+fmt(q.total)+'</span>'+
+        '<button data-act="load">Open</button>'+
+        '<button data-act="del">Delete</button>';
+      row.querySelector('[data-act="load"]').onclick = function(){ loadSavedQuote(q); };
+      row.querySelector('[data-act="del"]').onclick = function(){
+        var l = loadJSON(LS.saved, []); l.splice(idx,1); saveJSON(LS.saved, l); renderSavedList();
+      };
+      wrap.appendChild(row);
+    });
+  }
+
+  function loadSavedQuote(q){
+    state.cart = q.items.map(function(i){
+      var prod = PRODUCTS.find(function(p){ return p.name === i.name; });
+      return {name:i.name, price:i.price, qty:i.qty, category: prod ? prod.category : ""};
+    });
+    state.quoteId = q.id;
+    state.quoteDate = new Date(q.date);
+    state.gst = q.gst;
+    state.discount = q.discount;
+    document.getElementById("custName").value = q.customer.name || "";
+    document.getElementById("custPhone").value = q.customer.phone || "";
+    document.getElementById("custSite").value = q.customer.site || "";
+    document.getElementById("custAddr").value = q.customer.addr || "";
+    document.getElementById("gstToggle").checked = q.gst;
+    document.getElementById("discInput").value = q.discount;
+    switchTab("builder");
+    renderTicket();
+    showToast("Loaded quotation " + q.id);
+  }
+
+  /* ---------------- settings ---------------- */
+  function renderSettingsForm(){
+    document.getElementById("setCompany").value = settings.company || "";
+    document.getElementById("setPhone").value = settings.phone || "";
+    document.getElementById("setEmail").value = settings.email || "";
+    document.getElementById("setAddress").value = settings.address || "";
+    document.getElementById("setTerms").value = settings.terms || "";
+  }
+  function saveSettings(){
+    settings = {
+      company: document.getElementById("setCompany").value || "Your CCTV Company",
+      phone: document.getElementById("setPhone").value,
+      email: document.getElementById("setEmail").value,
+      address: document.getElementById("setAddress").value,
+      terms: document.getElementById("setTerms").value
+    };
+    saveJSON(LS.settings, settings);
+    showToast("Company settings saved");
+  }
+
+  /* ---------------- admin ---------------- */
+  function isAdminLoggedIn(){
+    try{ return sessionStorage.getItem(ADMIN_SESSION_KEY) === "1"; }catch(e){ return false; }
+  }
+  function setAdminLoggedIn(v){
+    try{ if(v) sessionStorage.setItem(ADMIN_SESSION_KEY, "1"); else sessionStorage.removeItem(ADMIN_SESSION_KEY); }catch(e){}
+  }
+  function adminLogin(){
+    var u = (document.getElementById("adminUser").value || "").trim();
+    var p = document.getElementById("adminPass").value || "";
+    var err = document.getElementById("adminErr");
+    if(u.toLowerCase() === ADMIN_USER.toLowerCase() && p === ADMIN_PASS){
+      setAdminLoggedIn(true);
+      err.style.display = "none";
+      document.getElementById("adminPass").value = "";
+      renderAdminPanel();
+      showToast("Welcome back, Admin");
+    } else {
+      err.style.display = "block";
+    }
+  }
+  function adminLogout(){
+    setAdminLoggedIn(false);
+    renderAdminPanel();
+  }
+  function renderAdminPanel(){
+    var loggedIn = isAdminLoggedIn();
+    document.getElementById("adminLoginBox").style.display = loggedIn ? "none" : "flex";
+    document.getElementById("adminPanelBox").style.display = loggedIn ? "block" : "none";
+    if(loggedIn){
+      document.getElementById("adminWho").textContent = ADMIN_USER;
+      var catList = document.getElementById("adminCatList");
+      catList.innerHTML = CATEGORIES.filter(function(c){ return c !== "All"; })
+        .map(function(c){ return '<option value="'+c.replace(/"/g,"&quot;")+'">'; }).join("");
+      renderAdminProductList();
+    }
+  }
+  function renderAdminProductList(){
+    var wrap = document.getElementById("adminProductList");
+    var q = (document.getElementById("adminSearch").value || "").trim().toLowerCase();
+    wrap.innerHTML = "";
+    var items = PRODUCTS.filter(function(p){ return !q || p.name.toLowerCase().indexOf(q) > -1; });
+    if(!items.length){
+      wrap.innerHTML = '<div class="empty-state">No products match your search.</div>';
+      return;
+    }
+    items.forEach(function(p){
+      var row = document.createElement("div");
+      row.className = "admin-row";
+      var isOverridden = overrides.hasOwnProperty(p.name);
+      row.innerHTML =
+        '<span class="an-name">'+p.name+(p.custom ? ' <span class="an-tag">custom</span>' : '')+'</span>'+
+        '<span class="an-cat">'+p.category+'</span>'+
+        '<input class="an-price mono" type="number" min="0" value="'+p.price+'">'+
+        '<button class="an-save">Save</button>'+
+        (isOverridden ? '<button class="an-reset">Reset</button>' : '')+
+        (p.custom ? '<button class="an-del" title="Delete product">✕</button>' : '');
+      var priceInput = row.querySelector(".an-price");
+      row.querySelector(".an-save").onclick = function(){
+        var val = parseFloat(priceInput.value);
+        if(isNaN(val) || val < 0){ showToast("Enter a valid price"); return; }
+        overrides[p.name] = val;
+        saveJSON(LS.overrides, overrides);
+        rebuildProducts();
+        renderGrid();
+        renderTicket();
+        renderAdminPanel();
+        showToast("Price updated for " + p.name);
+      };
+      var resetBtn = row.querySelector(".an-reset");
+      if(resetBtn){
+        resetBtn.onclick = function(){
+          delete overrides[p.name];
+          saveJSON(LS.overrides, overrides);
+          rebuildProducts();
+          renderGrid();
+          renderTicket();
+          renderAdminPanel();
+          showToast("Price reset to default for " + p.name);
+        };
+      }
+      var delBtn = row.querySelector(".an-del");
+      if(delBtn){
+        delBtn.onclick = function(){
+          if(!confirm('Delete "'+p.name+'" from the catalog?')) return;
+          customProducts = customProducts.filter(function(cp){ return cp.id !== p.id; });
+          delete overrides[p.name];
+          saveJSON(LS.custom, customProducts);
+          saveJSON(LS.overrides, overrides);
+          rebuildProducts();
+          renderChips();
+          renderGrid();
+          renderTicket();
+          renderAdminPanel();
+          showToast("Product deleted");
+        };
+      }
+      wrap.appendChild(row);
+    });
+  }
+  function adminAddProduct(){
+    var name = (document.getElementById("adminNewName").value || "").trim();
+    var cat = (document.getElementById("adminNewCat").value || "").trim();
+    var price = parseFloat(document.getElementById("adminNewPrice").value);
+    if(!name){ showToast("Enter a product name"); return; }
+    if(!cat){ showToast("Enter a category"); return; }
+    if(isNaN(price) || price < 0){ showToast("Enter a valid price"); return; }
+    if(PRODUCTS.some(function(p){ return p.name.toLowerCase() === name.toLowerCase(); })){
+      showToast("A product with this name already exists"); return;
+    }
+    var newProduct = {id:"c"+Date.now(), name:name, price:price, category:cat};
+    customProducts.push(newProduct);
+    saveJSON(LS.custom, customProducts);
+    rebuildProducts();
+    renderChips();
+    renderGrid();
+    renderAdminPanel();
+    document.getElementById("adminNewName").value = "";
+    document.getElementById("adminNewCat").value = "";
+    document.getElementById("adminNewPrice").value = "";
+    showToast("Product added");
+  }
+
+  /* ---------------- print ---------------- */
+  function buildPrintHeader(){
+    var q = currentQuoteObject();
+    var itemsHtml = q.items.map(function(i,idx){
+      return '<tr><td>'+(idx+1)+'</td><td>'+i.name+'</td><td style="text-align:center;">'+i.qty+'</td>'+
+        '<td style="text-align:right;">'+fmt(i.price)+'</td><td style="text-align:right;">'+fmt(i.price*i.qty)+'</td></tr>';
+    }).join("");
+    var html =
+      '<div style="font-family:Inter,sans-serif; color:#0B2D6B; max-width:760px; margin:0 auto; padding:24px;">'+
+      '<div style="display:flex; justify-content:space-between; align-items:flex-start; border-bottom:2px solid #0B2D6B; padding-bottom:14px; margin-bottom:16px;">'+
+        '<div><div style="font-family:\'Barlow Condensed\',sans-serif; font-size:28px; font-weight:800;">'+(settings.company||"Your CCTV Company")+'</div>'+
+        '<div style="font-size:12.5px; color:#555;">'+(settings.address||"")+'</div>'+
+        '<div style="font-size:12.5px; color:#555;">'+[settings.phone,settings.email].filter(Boolean).join(" · ")+'</div></div>'+
+        '<div style="text-align:right;"><div style="font-size:20px; font-weight:800;">QUOTATION</div>'+
+        '<div style="font-family:monospace; font-size:13px;">#'+q.id+'</div>'+
+        '<div style="font-size:12.5px; color:#555;">'+new Date(q.date).toLocaleDateString("en-IN",{day:"2-digit",month:"short",year:"numeric"})+'</div></div>'+
+      '</div>'+
+      '<div style="margin-bottom:16px; font-size:13px;"><b>Bill to:</b> '+(q.customer.name||"Walk-in customer")+
+        (q.customer.phone ? ' · '+q.customer.phone : '')+
+        (q.customer.site ? '<br>Site: '+q.customer.site : '')+
+        (q.customer.addr ? '<br>'+q.customer.addr : '')+'</div>'+
+      '<table style="width:100%; border-collapse:collapse; font-size:13px;">'+
+        '<thead><tr style="border-bottom:1px solid #0B2D6B;"><th style="text-align:left; padding:6px 4px;">#</th>'+
+        '<th style="text-align:left; padding:6px 4px;">Item</th><th style="padding:6px 4px;">Qty</th>'+
+        '<th style="text-align:right; padding:6px 4px;">Rate</th><th style="text-align:right; padding:6px 4px;">Amount</th></tr></thead>'+
+        '<tbody>'+itemsHtml+'</tbody>'+
+      '</table>'+
+      '<div style="display:flex; justify-content:flex-end; margin-top:12px;"><table style="font-size:13px; min-width:220px;">'+
+        '<tr><td style="padding:3px 8px;">Subtotal</td><td style="text-align:right; padding:3px 8px;">'+fmt(q.subtotal)+'</td></tr>'+
+        (q.gst ? '<tr><td style="padding:3px 8px;">GST 18%</td><td style="text-align:right; padding:3px 8px;">'+fmt(q.gstAmount)+'</td></tr>' : '')+
+        (q.discount ? '<tr><td style="padding:3px 8px;">Discount</td><td style="text-align:right; padding:3px 8px;">-'+fmt(q.discount)+'</td></tr>' : '')+
+        '<tr style="font-weight:800; font-size:16px; border-top:1px solid #0B2D6B;"><td style="padding:6px 8px;">Total</td><td style="text-align:right; padding:6px 8px;">'+fmt(q.total)+'</td></tr>'+
+      '</table></div>'+
+      (settings.terms ? '<div style="margin-top:22px; font-size:11.5px; color:#555; border-top:1px solid #ddd; padding-top:10px;"><b>Terms:</b> '+settings.terms+'</div>' : '')+
+      '</div>';
+    document.getElementById("printHeader").innerHTML = html;
+  }
+
+  function doPrint(){
+    buildPrintHeader();
+    var ph = document.getElementById("printHeader");
+    ph.style.display = "block";
+    var appEl = document.querySelector(".app");
+    appEl.style.display = "none";
+    window.print();
+    appEl.style.display = "grid";
+    ph.style.display = "none";
+  }
+
+  /* ---------------- PDF generation + WhatsApp share ---------------- */
+  function pdfLibReady(){
+    return !!(window.jspdf && window.jspdf.jsPDF);
+  }
+
+  function buildQuotePDF(){
+    var q = currentQuoteObject();
+    var jsPDF = window.jspdf.jsPDF;
+    var doc = new jsPDF({ unit: "pt", format: "a4" });
+    var pageW = doc.internal.pageSize.getWidth();
+    var margin = 40;
+    var navy = [11, 45, 107];
+    var gray = [90, 90, 90];
+
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(19);
+    doc.setTextColor.apply(doc, navy);
+    doc.text(settings.company || "Your CCTV Company", margin, 54);
+
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(9);
+    doc.setTextColor.apply(doc, gray);
+    var ay = 70;
+    if (settings.address) { doc.text(settings.address, margin, ay); ay += 12; }
+    var contact = [settings.phone, settings.email].filter(Boolean).join("   ·   ");
+    if (contact) { doc.text(contact, margin, ay); }
+
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(16);
+    doc.setTextColor.apply(doc, navy);
+    doc.text("QUOTATION", pageW - margin, 50, { align: "right" });
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(10);
+    doc.setTextColor.apply(doc, gray);
+    doc.text("#" + q.id, pageW - margin, 66, { align: "right" });
+    doc.text(new Date(q.date).toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" }), pageW - margin, 80, { align: "right" });
+
+    doc.setDrawColor.apply(doc, navy);
+    doc.setLineWidth(1.2);
+    doc.line(margin, 96, pageW - margin, 96);
+
+    var by = 116;
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(10);
+    doc.setTextColor(0, 0, 0);
+    doc.text("Bill to:", margin, by);
+    doc.setFont("helvetica", "normal");
+    var custLine = q.customer.name || "Walk-in customer";
+    if (q.customer.phone) custLine += "   ·   " + q.customer.phone;
+    doc.text(custLine, margin + 46, by);
+    by += 14;
+    if (q.customer.site) { doc.text("Site: " + q.customer.site, margin, by); by += 14; }
+    if (q.customer.addr) { doc.text(q.customer.addr, margin, by); by += 14; }
+
+    var rows = q.items.map(function(it, idx){
+      return [String(idx + 1), it.name, String(it.qty), fmt(it.price), fmt(it.price * it.qty)];
+    });
+
+    doc.autoTable({
+      startY: by + 10,
+      head: [["#", "Item", "Qty", "Rate", "Amount"]],
+      body: rows,
+      margin: { left: margin, right: margin },
+      styles: { font: "helvetica", fontSize: 9, cellPadding: 6 },
+      headStyles: { fillColor: navy, textColor: 255, fontStyle: "bold" },
+      columnStyles: {
+        0: { cellWidth: 24 },
+        2: { cellWidth: 40, halign: "center" },
+        3: { cellWidth: 74, halign: "right" },
+        4: { cellWidth: 84, halign: "right" }
+      }
+    });
+
+    var finalY = doc.lastAutoTable.finalY + 16;
+    var totalsX = pageW - margin - 200;
+    function totalLine(label, value, bold, big){
+      doc.setFont("helvetica", bold ? "bold" : "normal");
+      doc.setFontSize(big ? 13 : 10);
+      doc.setTextColor(bold ? navy[0] : 60, bold ? navy[1] : 60, bold ? navy[2] : 60);
+      doc.text(label, totalsX, finalY);
+      doc.text(value, pageW - margin, finalY, { align: "right" });
+      finalY += big ? 20 : 16;
+    }
+    totalLine("Subtotal", fmt(q.subtotal));
+    if (q.gst) totalLine("GST 18%", fmt(q.gstAmount));
+    if (q.discount) totalLine("Discount", "-" + fmt(q.discount));
+    doc.setDrawColor.apply(doc, navy);
+    doc.line(totalsX, finalY - 12, pageW - margin, finalY - 12);
+    totalLine("Total", fmt(q.total), true, true);
+
+    if (settings.terms) {
+      finalY += 12;
+      doc.setDrawColor(220, 220, 220);
+      doc.line(margin, finalY, pageW - margin, finalY);
+      finalY += 16;
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(9);
+      doc.setTextColor.apply(doc, gray);
+      doc.text("Terms:", margin, finalY);
+      doc.setFont("helvetica", "normal");
+      var termLines = doc.splitTextToSize(settings.terms, pageW - margin * 2 - 44);
+      doc.text(termLines, margin + 44, finalY);
+    }
+
+    return doc;
+  }
+
+  function isIOSDevice(){
+    return /iP(hone|ad|od)/.test(navigator.userAgent) ||
+      (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  }
+
+  function openOrSavePDF(doc, fileName){
+    // iOS Safari doesn't reliably honor the anchor "download" attribute jsPDF relies on —
+    // it can silently fail. Opening the PDF blob directly gives the native viewer with a
+    // working Share/Save-to-Files button instead.
+    if (isIOSDevice()) {
+      var url = doc.output("bloburl");
+      var win = window.open(url, "_blank");
+      if (!win) { showToast("Allow pop-ups to open the PDF, then use Share to save it"); }
+      else { showToast("Opened PDF — tap the Share icon to save it"); }
+      return;
+    }
+    try {
+      doc.save(fileName);
+    } catch (e) {
+      var url2 = doc.output("bloburl");
+      window.open(url2, "_blank");
+    }
+  }
+
+  function downloadPDF(){
+    if (!pdfLibReady()) { showToast("PDF tools still loading — try again in a second"); return; }
+    var doc = buildQuotePDF();
+    openOrSavePDF(doc, "Quotation-" + state.quoteId + ".pdf");
+  }
+
+  function shareViaWhatsApp(){
+    if (!pdfLibReady()) { showToast("PDF tools still loading — try again in a second"); return; }
+    var doc = buildQuotePDF();
+    var q = currentQuoteObject();
+    var fileName = "Quotation-" + state.quoteId + ".pdf";
+
+    var canShareFiles = false;
+    var file = null;
+    try {
+      var blob = doc.output("blob");
+      file = new File([blob], fileName, { type: "application/pdf" });
+      canShareFiles = !!(navigator.canShare && navigator.canShare({ files: [file] }));
+    } catch (e) { canShareFiles = false; }
+
+    if (navigator.share && canShareFiles) {
+      navigator.share({
+        files: [file],
+        title: "Quotation " + q.id,
+        text: (settings.company ? settings.company + " — " : "") + "Quotation " + q.id + " · Total " + fmt(q.total)
+      }).catch(function(err){
+        if (err && err.name !== "AbortError") {
+          openOrSavePDF(doc, fileName);
+          showToast("Couldn't open share sheet — PDF opened instead");
+        }
+      });
+      return;
+    }
+
+    // Fallback for browsers without file-sharing support (e.g. some desktop/older browsers):
+    // save/open the PDF and open WhatsApp with a text summary to attach it to manually.
+    openOrSavePDF(doc, fileName);
+    var msg = (settings.company ? settings.company + "\n" : "") +
+
+      "Quotation #" + q.id + "\nTotal: " + fmt(q.total) +
+      "\n\nThe PDF has been downloaded to your device — please attach it to this chat.";
+    window.open("https://wa.me/?text=" + encodeURIComponent(msg), "_blank");
+    showToast("PDF downloaded — attach it in WhatsApp");
+  }
+
+  /* ---------------- tabs / mobile ticket ---------------- */
+  function switchTab(tab){
+    document.querySelectorAll("nav.tabs button").forEach(function(b){
+      b.classList.toggle("active", b.dataset.tab === tab);
+    });
+    document.querySelectorAll("[data-view]").forEach(function(v){
+      v.classList.toggle("active", v.dataset.view === tab);
+    });
+    if(tab === "saved") renderSavedList();
+    if(tab === "settings") renderSettingsForm();
+    if(tab === "admin") renderAdminPanel();
+  }
+
+  function openTicket(){ document.getElementById("ticket").classList.add("open"); }
+  function closeTicket(){ document.getElementById("ticket").classList.remove("open"); }
+
+  var toastTimer;
+  function showToast(msg){
+    var t = document.getElementById("toast");
+    t.textContent = msg;
+    t.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ t.classList.remove("show"); }, 1800);
+  }
+
+  /* ---------------- wire up ---------------- */
+  document.querySelectorAll("nav.tabs button").forEach(function(b){
+    b.addEventListener("click", function(){ switchTab(b.dataset.tab); });
+  });
+  document.getElementById("cartFab").addEventListener("click", openTicket);
+  var handleNewQuote = function(){
+    if(state.cart.length && !confirm("Start a new quotation? Unsaved changes will be lost.")) return;
+    startNewQuote();
+    if(window.innerWidth <= 940) closeTicket();
+  };
+  document.getElementById("newFab").addEventListener("click", handleNewQuote);
+  document.getElementById("searchInput").addEventListener("input", function(e){ state.search = e.target.value; renderGrid(); });
+  document.getElementById("loadAnalogKit").addEventListener("click", function(){ loadKit(ANALOG_KIT, "Analog Kit"); });
+  document.getElementById("loadIpKit").addEventListener("click", function(){ loadKit(IP_KIT, "IP Kit"); });
+  document.getElementById("newQuoteBtn").addEventListener("click", handleNewQuote);
+  document.getElementById("saveQuoteBtn").addEventListener("click", saveCurrentQuote);
+  document.getElementById("printBtn").addEventListener("click", doPrint);
+  document.getElementById("downloadPdfBtn").addEventListener("click", downloadPDF);
+  document.getElementById("shareWaBtn").addEventListener("click", shareViaWhatsApp);
+  document.getElementById("gstToggle").addEventListener("change", function(e){ state.gst = e.target.checked; updateTotals(); });
+  document.getElementById("discInput").addEventListener("input", function(e){ state.discount = parseFloat(e.target.value) || 0; updateTotals(); });
+  document.getElementById("saveSettingsBtn").addEventListener("click", saveSettings);
+  document.getElementById("adminLoginBtn").addEventListener("click", adminLogin);
+  document.getElementById("adminPass").addEventListener("keydown", function(e){ if(e.key === "Enter") adminLogin(); });
+  document.getElementById("adminUser").addEventListener("keydown", function(e){ if(e.key === "Enter") adminLogin(); });
+  document.getElementById("adminLogoutBtn").addEventListener("click", adminLogout);
+  document.getElementById("adminAddBtn").addEventListener("click", adminAddProduct);
+  document.getElementById("adminSearch").addEventListener("input", renderAdminProductList);
+
+  // mobile: tap the drag handle to close; explicit ✕ button also closes
+  document.getElementById("ticketDrag").addEventListener("click", function(){
+    if(window.innerWidth <= 940) closeTicket();
+  });
+  document.getElementById("ticketCloseBtn").addEventListener("click", function(e){
+    e.stopPropagation();
+    closeTicket();
+  });
+
+  /* ---------------- install as app ---------------- */
+  var deferredInstallPrompt = null;
+  function isStandaloneMode(){
+    return window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
+  }
+  function isAndroidDevice(){
+    return /Android/.test(navigator.userAgent);
+  }
+  function fillSteps(listEl, steps){
+    listEl.innerHTML = "";
+    steps.forEach(function(s){
+      var li = document.createElement("li");
+      li.textContent = s;
+      listEl.appendChild(li);
+    });
+  }
+  function setupInstallCard(){
+    var card = document.getElementById("installCard");
+    var btn = document.getElementById("installBtn");
+    var notice = document.getElementById("installNotice");
+    var steps = document.getElementById("installSteps");
+    if (isStandaloneMode()) { card.style.display = "none"; return; }
+
+    var isFileProtocol = window.location.protocol === "file:";
+    var isSecure = window.location.protocol === "https:" || window.location.hostname === "localhost";
+
+    if (isFileProtocol || !isSecure) {
+      notice.style.display = "block";
+      notice.textContent = "One-tap auto-install needs this page hosted online (https). Opened as a local file, use the manual steps below instead — they still add a working home-screen icon.";
+    }
+
+    if (isIOSDevice()) {
+      fillSteps(steps, [
+        "Open this page in Safari (not Chrome — iOS requires Safari for this).",
+        "Tap the Share icon in the toolbar.",
+        "Scroll down and tap \"Add to Home Screen\".",
+        "Tap \"Add\" — the icon now opens full screen, no browser bar."
+      ]);
+      btn.style.display = "none";
+    } else if (isAndroidDevice()) {
+      fillSteps(steps, [
+        "Tap the ⋮ menu (top right of Chrome).",
+        "Tap \"Add to Home screen\" or \"Install app\".",
+        "Confirm — the icon now opens full screen, no browser bar."
+      ]);
+      btn.style.display = "none"; // upgraded to auto-install below if the browser allows it
+      window.addEventListener("beforeinstallprompt", function(e){
+        e.preventDefault();
+        deferredInstallPrompt = e;
+        btn.style.display = "inline-block";
+        btn.textContent = "Install now";
+      });
+      btn.addEventListener("click", function(){
+        if (!deferredInstallPrompt) return;
+        deferredInstallPrompt.prompt();
+        deferredInstallPrompt.userChoice.finally(function(){
+          deferredInstallPrompt = null;
+          btn.style.display = "none";
+        });
+      });
+      window.addEventListener("appinstalled", function(){
+        card.style.display = "none";
+        showToast("Installed — find ApertureQuote on your home screen");
+      });
+    } else {
+      fillSteps(steps, [
+        "On Chrome or Edge: click the install icon (⊕ or a small monitor icon) at the right edge of the address bar.",
+        "Or open the browser menu and look for \"Install ApertureQuote\" / \"Add to Home screen\"."
+      ]);
+      btn.style.display = "none";
+    }
+  }
+
+  /* ---------------- cloud sync bootstrap ---------------- */
+  function initCloudSync(){
+    if(!fbEnabled) return;
+
+    // Company settings — pull latest, then react to changes from other devices.
+    cloudWatch(LS.settings, function(v){
+      settings = v;
+      saveLocalOnly(LS.settings, settings);
+      renderSettingsForm();
+    });
+
+    // Price overrides — pull latest and refresh product prices.
+    cloudWatch(LS.overrides, function(v){
+      overrides = v;
+      saveLocalOnly(LS.overrides, overrides);
+      rebuildProducts();
+      renderGrid();
+      renderTicket();
+      if(isAdminLoggedIn()) renderAdminPanel();
+    });
+
+    // Admin-added products — pull latest and refresh catalog on every device.
+    cloudWatch(LS.custom, function(v){
+      customProducts = v;
+      saveLocalOnly(LS.custom, customProducts);
+      rebuildProducts();
+      renderChips();
+      renderGrid();
+      renderTicket();
+      if(isAdminLoggedIn()) renderAdminPanel();
+    });
+
+    // Saved quotes — live sync across devices.
+    cloudWatch(LS.saved, function(v){
+      saveLocalOnly(LS.saved, v);
+      renderSavedList();
+    });
+
+    // Quote counter — take whichever is higher, local or cloud, to avoid clashing IDs.
+    cloudGetOnce(LS.counter, function(v){
+      var local = loadJSON(LS.counter, 0);
+      if(v > local){ saveLocalOnly(LS.counter, v); }
+      else if(local > v){ cloudSet(LS.counter, local); }
+    });
+  }
+
+  /* ---------------- init ---------------- */
+  renderChips();
+  renderGrid();
+  renderSettingsForm();
+  renderAdminPanel();
+  setupInstallCard();
+  startNewQuote();
+  initCloudSync();
+})();
+</script>
+</body>
+</html>
