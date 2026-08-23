@@ -646,6 +646,14 @@
     return "₹" + n.toLocaleString("en-IN");
   }
 
+  // jsPDF's built-in fonts (Helvetica/Times/Courier) don't include the ₹ glyph (U+20B9) —
+  // it silently renders as a stray character (looks like "¹") instead. Use "Rs." in PDFs only;
+  // screen, print, and WhatsApp text all keep the real ₹ symbol via fmt() above.
+  function fmtPDF(n){
+    n = Math.round(n);
+    return "Rs. " + n.toLocaleString("en-IN");
+  }
+
   function nextQuoteId(){
     var c = loadJSON(LS.counter, 0) + 1;
     saveJSON(LS.counter, c);
@@ -1106,7 +1114,7 @@
     if (q.customer.addr) { doc.text(q.customer.addr, margin, by); by += 14; }
 
     var rows = q.items.map(function(it, idx){
-      return [String(idx + 1), it.name, String(it.qty), fmt(it.price), fmt(it.price * it.qty)];
+      return [String(idx + 1), it.name, String(it.qty), fmtPDF(it.price), fmtPDF(it.price * it.qty)];
     });
 
     doc.autoTable({
@@ -1114,13 +1122,13 @@
       head: [["#", "Item", "Qty", "Rate", "Amount"]],
       body: rows,
       margin: { left: margin, right: margin },
-      styles: { font: "helvetica", fontSize: 9, cellPadding: 6 },
+      styles: { font: "helvetica", fontSize: 9, cellPadding: 6, overflow: "linebreak" },
       headStyles: { fillColor: navy, textColor: 255, fontStyle: "bold" },
       columnStyles: {
         0: { cellWidth: 24 },
         2: { cellWidth: 40, halign: "center" },
-        3: { cellWidth: 74, halign: "right" },
-        4: { cellWidth: 84, halign: "right" }
+        3: { cellWidth: 88, halign: "right" },
+        4: { cellWidth: 98, halign: "right" }
       }
     });
 
@@ -1134,12 +1142,12 @@
       doc.text(value, pageW - margin, finalY, { align: "right" });
       finalY += big ? 20 : 16;
     }
-    totalLine("Subtotal", fmt(q.subtotal));
-    if (q.gst) totalLine("GST 18%", fmt(q.gstAmount));
-    if (q.discount) totalLine("Discount", "-" + fmt(q.discount));
+    totalLine("Subtotal", fmtPDF(q.subtotal));
+    if (q.gst) totalLine("GST 18%", fmtPDF(q.gstAmount));
+    if (q.discount) totalLine("Discount", "-" + fmtPDF(q.discount));
     doc.setDrawColor.apply(doc, navy);
     doc.line(totalsX, finalY - 12, pageW - margin, finalY - 12);
-    totalLine("Total", fmt(q.total), true, true);
+    totalLine("Total", fmtPDF(q.total), true, true);
 
     if (settings.terms) {
       finalY += 12;
