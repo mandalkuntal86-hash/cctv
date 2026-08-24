@@ -357,7 +357,7 @@
 
       <div class="totals">
         <div class="trow"><span>Subtotal</span><span class="mono" id="tSub">₹0</span></div>
-        <div class="trow"><span class="toggle-row"><input type="checkbox" id="gstToggle"> GST 18%</span><span class="mono" id="tGst">₹0</span></div>
+        <div class="trow"><span>Service Charge ₹</span><input type="number" id="serviceChargeInput" min="0" value="0"></div>
         <div class="trow"><span>Discount ₹</span><input type="number" id="discInput" min="0" value="0"></div>
         <div class="trow grand"><span>Total</span><span class="mono" id="tGrand">₹0</span></div>
       </div>
@@ -647,7 +647,7 @@
     cart: [], // {name, price, qty, category}
     quoteId: null,
     quoteDate: null,
-    gst: false,
+    serviceCharge: 0,
     discount: 0
   };
 
@@ -674,13 +674,13 @@
     state.cart = [];
     state.quoteId = nextQuoteId();
     state.quoteDate = new Date();
-    state.gst = false;
+    state.serviceCharge = 0;
     state.discount = 0;
     document.getElementById("custName").value = "";
     document.getElementById("custPhone").value = "";
     document.getElementById("custSite").value = "";
     document.getElementById("custAddr").value = "";
-    document.getElementById("gstToggle").checked = false;
+    document.getElementById("serviceChargeInput").value = 0;
     document.getElementById("discInput").value = 0;
     renderTicket();
   }
@@ -820,11 +820,10 @@
 
   function updateTotals(){
     var sub = state.cart.reduce(function(s,i){ return s + i.price*i.qty; }, 0);
-    var gstAmt = state.gst ? sub * 0.18 : 0;
+    var svcAmt = state.serviceCharge || 0;
     var disc = state.discount || 0;
-    var grand = Math.max(0, sub + gstAmt - disc);
+    var grand = Math.max(0, sub + svcAmt - disc);
     document.getElementById("tSub").textContent = fmt(sub);
-    document.getElementById("tGst").textContent = fmt(gstAmt);
     document.getElementById("tGrand").textContent = fmt(grand);
     document.getElementById("fabTotal").textContent = fmt(grand);
     var hasItems = state.cart.length > 0;
@@ -837,8 +836,8 @@
   /* ---------------- saved quotes ---------------- */
   function currentQuoteObject(){
     var sub = state.cart.reduce(function(s,i){ return s + i.price*i.qty; }, 0);
-    var gstAmt = state.gst ? sub*0.18 : 0;
-    var grand = Math.max(0, sub + gstAmt - state.discount);
+    var svcAmt = state.serviceCharge || 0;
+    var grand = Math.max(0, sub + svcAmt - state.discount);
     return {
       id: state.quoteId,
       date: state.quoteDate.toISOString(),
@@ -849,9 +848,9 @@
         addr: document.getElementById("custAddr").value
       },
       items: state.cart.map(function(i){ return {name:i.name, price:i.price, qty:i.qty}; }),
-      gst: state.gst,
+      serviceCharge: svcAmt,
       discount: state.discount,
-      subtotal: sub, gstAmount: gstAmt, total: grand
+      subtotal: sub, total: grand
     };
   }
 
@@ -896,13 +895,13 @@
     });
     state.quoteId = q.id;
     state.quoteDate = new Date(q.date);
-    state.gst = q.gst;
+    state.serviceCharge = q.serviceCharge || 0;
     state.discount = q.discount;
     document.getElementById("custName").value = q.customer.name || "";
     document.getElementById("custPhone").value = q.customer.phone || "";
     document.getElementById("custSite").value = q.customer.site || "";
     document.getElementById("custAddr").value = q.customer.addr || "";
-    document.getElementById("gstToggle").checked = q.gst;
+    document.getElementById("serviceChargeInput").value = q.serviceCharge || 0;
     document.getElementById("discInput").value = q.discount;
     switchTab("builder");
     renderTicket();
@@ -1083,7 +1082,7 @@
       '</table>'+
       '<div style="display:flex; justify-content:flex-end; margin-top:12px;"><table style="font-size:13px; min-width:220px;">'+
         '<tr><td style="padding:3px 8px;">Subtotal</td><td style="text-align:right; padding:3px 8px;">'+fmt(q.subtotal)+'</td></tr>'+
-        (q.gst ? '<tr><td style="padding:3px 8px;">GST 18%</td><td style="text-align:right; padding:3px 8px;">'+fmt(q.gstAmount)+'</td></tr>' : '')+
+        (q.serviceCharge ? '<tr><td style="padding:3px 8px;">Service Charge</td><td style="text-align:right; padding:3px 8px;">'+fmt(q.serviceCharge)+'</td></tr>' : '')+
         (q.discount ? '<tr><td style="padding:3px 8px;">Discount</td><td style="text-align:right; padding:3px 8px;">-'+fmt(q.discount)+'</td></tr>' : '')+
         '<tr style="font-weight:800; font-size:16px; border-top:1px solid #0B2D6B;"><td style="padding:6px 8px;">Total</td><td style="text-align:right; padding:6px 8px;">'+fmt(q.total)+'</td></tr>'+
       '</table></div>'+
@@ -1187,7 +1186,7 @@
       finalY += big ? 20 : 16;
     }
     totalLine("Subtotal", fmtPDF(q.subtotal));
-    if (q.gst) totalLine("GST 18%", fmtPDF(q.gstAmount));
+    if (q.serviceCharge) totalLine("Service Charge", fmtPDF(q.serviceCharge));
     if (q.discount) totalLine("Discount", "-" + fmtPDF(q.discount));
     doc.setDrawColor.apply(doc, navy);
     doc.line(totalsX, finalY - 12, pageW - margin, finalY - 12);
@@ -1323,7 +1322,7 @@
   document.getElementById("printBtn").addEventListener("click", doPrint);
   document.getElementById("downloadPdfBtn").addEventListener("click", downloadPDF);
   document.getElementById("shareWaBtn").addEventListener("click", shareViaWhatsApp);
-  document.getElementById("gstToggle").addEventListener("change", function(e){ state.gst = e.target.checked; updateTotals(); });
+  document.getElementById("serviceChargeInput").addEventListener("input", function(e){ state.serviceCharge = parseFloat(e.target.value) || 0; updateTotals(); });
   document.getElementById("discInput").addEventListener("input", function(e){ state.discount = parseFloat(e.target.value) || 0; updateTotals(); });
   document.getElementById("saveSettingsBtn").addEventListener("click", saveSettings);
   document.getElementById("adminLoginBtn").addEventListener("click", adminLogin);
